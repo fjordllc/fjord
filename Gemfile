@@ -13,6 +13,8 @@ gem 'rails-i18n'
 gem 'high_voltage'
 gem 'slim-rails'
 gem 'simple_seed'
+gem 'sassc-rails'
+gem 'flutie'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -24,6 +26,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'xray-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
