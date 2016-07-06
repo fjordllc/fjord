@@ -1,0 +1,29 @@
+nav.navbar.navbar-default
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'TIME TRACKER', root_path, class: 'navbar-brand'
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+          li= link_to 'タスク', ''
+          li= link_to 'タイムライン', ''
+          li= link_to 'ダッシュボード', ''
+          li= link_to 'プロジェクト', ''
+          li= link_to 'チーム', ''
+      ul.nav.navbar-nav.navbar-right
+        - if nil
+          li.dropdown
+            a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+              span.icon
+              span.login-name= 'name'
+              span.caret
+            ul.dropdown-menu
+              li= link_to 'Edit user', ''
+              li= link_to 'Logout', ''
+        - else
+          li= link_to 'サインイン', ''
+          li= link_to 'サインアップ', ''

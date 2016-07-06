@@ -1,0 +1,17 @@
+doctype html
+html lang="ja"
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title TIME TRACKER
+    = favicon_link_tag
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', media: 'all'
+    = stylesheet_link_tag '//fonts.googleapis.com/earlyaccess/notosansjapanese.css', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', integrity: 'sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS', crossorigin: 'anonymous'
+    = csrf_meta_tags
+  body
+    = render 'header'
+    .container
+      = yield
