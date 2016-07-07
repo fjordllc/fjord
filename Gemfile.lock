@@ -54,6 +54,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.12)
+    flutie (2.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     high_voltage (3.0.0)
@@ -133,6 +134,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (1.10.0)
+      bundler
+      ffi (~> 1.9.6)
+      sass (>= 3.3.0)
+    sassc-rails (1.2.1)
+      railties (>= 4.0.0)
+      sass
+      sassc (~> 1.9)
+      sprockets (> 2.11)
+      sprockets-rails
+      tilt
     simple_seed (0.0.2)
       activerecord (>= 4.0)
     slim (3.0.7)
@@ -173,6 +185,9 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xray-rails (0.1.21)
+      coffee-rails
+      rails (>= 3.1.0)
 
 PLATFORMS
   ruby
@@ -180,6 +195,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  flutie
   high_voltage
   jbuilder (~> 2.5)
   jquery-rails
@@ -190,6 +206,7 @@ DEPENDENCIES
   rails (~> 5.0.0)
   rails-i18n
   sass-rails (~> 5.0)
+  sassc-rails
   simple_seed
   slim-rails
   spring
@@ -198,6 +215,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
+  xray-rails
 
 BUNDLED WITH
    1.12.5
