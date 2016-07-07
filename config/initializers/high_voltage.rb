@@ -1,3 +1,3 @@
 HighVoltage.configure do |config|
-  config.home_page = 'tasks'
+  config.home_page = 'timelines'
 end

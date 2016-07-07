@@ -1,0 +1,32 @@
+h1 レポート
+
+div(style="text-align:right;margin:30px 0")
+  button.btn.btn-default(style="margin-right:10px") CSV
+  button.btn.btn-default(style="margin-right:10px") PDF
+  button.btn.btn-default Markdown
+
+form.form-inline.report
+  .form-group
+    label 期間
+    select.form-control
+      option 今月
+      option 今週
+      option 今年
+      option 全て
+  .form-group
+    label 集計単位
+    select.form-control
+      option プロジェクト
+      option チーム
+      option クライアント
+  .form-group
+    label プロジェクト
+    select.form-control
+      option 怖話
+      option Kulku
+      option 永和システムマネジメント
+
+br
+br
+
+= image_tag 'https://i.gyazo.com/62ffd01201edb5d72b0e22b4d85ccf44.png'

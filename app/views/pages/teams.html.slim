@@ -1,3 +1,37 @@
 = content_for(:extra_body_classes, 'team')
 
 h1 チーム
+
+div(style="text-align:right;margin:30px 0")
+  button.btn.btn-default 編集
+
+.name(style="font-size:28px") チーム名：fjord
+
+hr
+br
+br
+br
+
+h2 メンバー
+
+div(style="text-align:right;margin:30px 0")
+  button.btn.btn-default 招待
+
+table.table.table-bordered
+  tr
+    th 氏名
+    th Email
+    th 権限
+    th(style="width:100px") アクション
+  tr
+    td 駒形真幸
+    td komagata@fjord.jp
+    td 管理者
+    td(style="text-align:center")
+      button.btn.btn-default(style="margin-right:10px") 編集
+  tr
+    td 町田哲平
+    td machida@fjord.jp
+    td 一般
+    td(style="text-align:center")
+      button.btn.btn-default(style="margin-right:10px") 編集

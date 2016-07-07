@@ -9,11 +9,11 @@ nav.navbar.navbar-default
       = link_to 'TIME TRACKER', root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-          li= link_to 'タスク', '/pages/tasks'
           li= link_to 'タイムライン', '/pages/timelines'
           li= link_to 'ダッシュボード', '/pages/dashboard'
           li= link_to 'プロジェクト', '/pages/projects'
           li= link_to 'チーム', '/pages/teams'
+          li= link_to 'レポート', '/pages/reports'
       ul.nav.navbar-nav.navbar-right
         - if nil
           li.dropdown
