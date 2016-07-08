@@ -5,17 +5,18 @@ default: &default
 
 development:
   <<: *default
-  database: time_tracker_development
+  database: fjord_development
 
 test:
   <<: *default
-  database: time_tracker_test
+  database: fjord_test
 
 production: &production
   <<: *default
-  database: time_tracker_production
-  username: time_tracker
-  password: test
+  url: <%= ENV["DATABASE_URL"] %>
+
+review:
+  <<: *production
 
 staging:
   <<: *production
