@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.1'
+
 gem 'rails', '~> 5.0.0'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -15,6 +17,10 @@ gem 'slim-rails'
 gem 'simple_seed'
 gem 'sassc-rails'
 gem 'flutie'
+
+group :production, :staging, :review do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug', platform: :mri
