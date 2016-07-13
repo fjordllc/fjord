@@ -1,0 +1,4 @@
+p #{@resource.email}さん
+p あなたのアカウントはサインインに何度も失敗したためロックされました。
+p 下記のリンクをクリックしてアカウントのロックを解除して下さい。
+p= link_to 'ロックを解除する', unlock_url(@resource, unlock_token: @token)
