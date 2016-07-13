@@ -1,24 +1,32 @@
-# README
+# FJORD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+タイムトラッキングシステム。
 
-Things you may want to cover:
+## 必要環境
 
-* Ruby version
+- ruby 2.3.1
+- rails 4.2.6
+- postgres 9.5
 
-* System dependencies
+## インストール
 
-* Configuration
+```
+$ brew install postgresql
+$ ./bin/setup
+```
 
-* Database creation
+## テスト
 
-* Database initialization
+```
+$ rake
+```
 
-* How to run the test suite
+## デプロイ
 
-* Services (job queues, cache servers, search engines, etc.)
+masterに変更があると（PRがマージされると）デプロイされます。
 
-* Deployment instructions
+## コントリビュート方法
 
-* ...
+1. Pull Requestを作る。
+1. 自分以外の誰かにレビュー依頼する。
+1. レビューがOKだったらマージされる。
