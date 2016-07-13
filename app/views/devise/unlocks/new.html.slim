@@ -1,0 +1,10 @@
+.row
+  .col-md-6.col-md-offset-3
+    h2 アカウントの凍結解除方法を再送する
+    = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true
+      = f.submit 'アカウントの凍結解除方法を再送する'
+    = render 'devise/shared/links'

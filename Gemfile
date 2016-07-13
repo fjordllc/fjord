@@ -17,6 +17,8 @@ gem 'slim-rails'
 gem 'simple_seed'
 gem 'sassc-rails'
 gem 'flutie'
+gem 'devise'
+gem 'devise-i18n'
 
 group :production, :staging, :review do
   gem 'rails_12factor'
@@ -33,6 +35,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'xray-rails'
+  gem 'letter_opener'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

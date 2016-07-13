@@ -15,6 +15,7 @@ html lang="ja"
     = csrf_meta_tags
   body(class="#{body_class}")
     = render 'header'
+    = render 'alert'
     .container
       = render 'tracker'
       = yield

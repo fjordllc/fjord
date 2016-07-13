@@ -1,0 +1,23 @@
+h2 アカウント編集
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = devise_error_messages!
+  .form-group
+    = f.label :email
+    = f.email_field :email, autofocus: true, class: 'form-control'
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    p
+      | メール確認中: #{resource.unconfirmed_email}
+  .form-group
+    = f.label :password
+    = f.password_field :password, autocomplete: 'off', class: 'form-control'
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+  .form-group
+    = f.label :current_password
+    = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
+  = f.submit '保存', class: 'btn btn-default'
+
+h3 アカウント削除
+p= button_to 'アカウント削除', registration_path(resource_name), data: { confirm: '本当によろしいですか？' }, method: :delete
+= link_to '戻る', :back, class: 'btn btn-default'
