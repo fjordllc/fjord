@@ -1,0 +1,17 @@
+h1 プロジェクト
+
+div(style="text-align:right;margin:30px 0")
+  = link_to '作成', new_project_path, class: 'btn btn-default'
+
+table.table.table-bordered
+  tr
+    th プロジェクト名
+    th 合計時間
+    th アクション
+  - @projects.each do |project|
+    tr
+      td= link_to project.title, project
+      td 00:00:00
+      td
+        = link_to '編集', edit_project_path(project), class: 'btn btn-default'
+        = link_to '削除', project, data: { confirm: '本当によろしいですか？' }, method: :delete, class: 'btn btn-default'

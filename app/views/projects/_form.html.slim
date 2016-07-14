@@ -1,0 +1,11 @@
+= form_for project do |f|
+  - if project.errors.any?
+    #error_explanation
+      h2= "#{@project.errors.count}個のエラーが起きました。"
+      ul
+        - @project.errors.full_messages.each do |message|
+          li = message
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  = f.submit '作成', class: 'btn btn-default'
