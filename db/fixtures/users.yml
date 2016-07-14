@@ -1,0 +1,11 @@
+user_1:
+  id: 1
+  email: komagata@fjord.jp
+  encrypted_password: $2a$11$UId/JAaZJWTkHGX1ZowDSOaUaQE3jStMEzCwnXQ7fiKywAFkyi3d.
+  confirmed_at: 2016-01-01 00:00:00
+
+user_2:
+  id: 2
+  email: machida@fjord.jp
+  encrypted_password: $2a$11$UId/JAaZJWTkHGX1ZowDSOaUaQE3jStMEzCwnXQ7fiKywAFkyi3d.
+  confirmed_at: 2016-01-01 00:00:00
