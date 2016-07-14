@@ -19,6 +19,7 @@ gem 'sassc-rails'
 gem 'flutie'
 gem 'devise'
 gem 'devise-i18n'
+gem 'simple_seed'
 
 group :production, :staging, :review do
   gem 'rails_12factor'
