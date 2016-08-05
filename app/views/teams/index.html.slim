@@ -1,0 +1,5 @@
+h2 チーム一覧
+
+ul
+  - @teams.each do |team|
+    li= link_to team.domain, root_url(subdomain: team.domain)

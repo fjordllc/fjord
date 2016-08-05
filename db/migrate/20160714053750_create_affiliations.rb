@@ -5,5 +5,7 @@ class CreateAffiliations < ActiveRecord::Migration[5.0]
       t.belongs_to :team, foreign_key: true
       t.boolean :ownership, null: false, default: false
     end
+
+    add_index :affiliations, [:user_id, :team_id], :unique => true
   end
 end

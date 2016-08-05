@@ -3,4 +3,9 @@ class Team < ApplicationRecord
   has_many :users, through: :affiliations
   has_one :owner_affiliation, -> { where(ownership: true) }, class_name: 'Affiliation'
   has_one :owner, through: :owner_affiliation, source: :user
+
+  validates :domain, presence: true,
+                     uniqueness: true,
+                     length: { maximum: 32 },
+                     format: { with: /\A[a-zA-Z0-9].[a-zA-Z0-9-]+[a-zA-Z0-9].\Z/ }
 end

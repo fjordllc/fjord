@@ -6,13 +6,13 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'FJORD', root_path, class: 'navbar-brand'
+      = link_to 'FJORD', root_url(subdomain: false), class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
           li= link_to 'タイムライン', '/pages/timelines'
           li= link_to 'ダッシュボード', '/pages/dashboard'
           li= link_to 'プロジェクト', '/pages/projects'
-          li= link_to 'チーム', '/pages/teams'
+          li= link_to 'チーム', teams_url(subdomain: false)
           li= link_to 'レポート', '/pages/reports'
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
@@ -22,8 +22,8 @@ nav.navbar.navbar-default
               span.login-name= current_user.email
               span.caret
             ul.dropdown-menu
-              li= link_to 'サインアウト', destroy_user_session_path, method: :delete
-              li= link_to '招待する', new_user_invitation_path
+              li= link_to 'サインアウト', destroy_user_session_url(subdomain: false), method: :delete
+              li= link_to '招待する', new_user_invitation_url(subdomain: false)
         - else
-          li= link_to 'サインイン', new_user_session_path
-          li= link_to 'サインアップ', new_user_registration_path
+          li= link_to 'サインイン', new_user_session_url(subdomain: false)
+          li= link_to 'サインアップ', new_user_registration_url(subdomain: false)
