@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  devise :invitable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :invitable
+         :confirmable
 
   has_many :affiliations
   has_many :teams, through: :affiliations
