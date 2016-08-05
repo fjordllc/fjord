@@ -1,10 +1,13 @@
 ja:
   activerecord:
-   models:
-     user: ユーザー
-   attributes:
-     user:
-       email: メールアドレス
-       password: パスワード
-       password_confirmation: パスワード確認
-       remember_me: ログイン状態を保存する
+    models:
+      user: ユーザー
+      team: チーム
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        remember_me: ログイン状態を保存する
+      team:
+        domain: ドメイン

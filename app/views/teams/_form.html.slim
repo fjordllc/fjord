@@ -1,0 +1,9 @@
+= form_for team, html: { class: 'form-inline' } do |f|
+  = render 'error', model: team
+
+  .form-group
+    = f.label :domain
+    = f.text_field :domain, class: 'form-control'
+    b .fjord.cm
+
+  = f.submit '保存', class: 'btn btn-default'

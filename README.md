@@ -13,6 +13,7 @@
 ```
 $ brew install postgresql
 $ ./bin/setup
+$ rails s -b lvh.me
 ```
 
 ## テスト

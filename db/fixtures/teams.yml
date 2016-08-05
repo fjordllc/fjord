@@ -1,5 +1,7 @@
 team_1:
   id: 1
+  domain: 'fjord'
 
 team_2:
   id: 2
+  domain: 'machida'
