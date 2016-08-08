@@ -9,7 +9,8 @@ nav.navbar.navbar-default
       = link_to 'FJORD', root_url(subdomain: false), class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-          li= link_to 'チーム', teams_url(subdomain: false)
+          li= link_to 'プロジェクト', our_projects_path
+          li= link_to 'チーム', our_team_path
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li.dropdown

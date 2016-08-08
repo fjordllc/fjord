@@ -4,7 +4,7 @@ h1 トップページ（サインイン済み）
   h2 チームを選択して下さい
   ul
     - current_user.teams.each do |team|
-      li= link_to team.domain, subdomain_root_url(subdomain: team.domain)
+      li= link_to team.domain, our_root_url(subdomain: team.domain)
 - else
   h2 チームを作成してください
   p= link_to 'チーム作成', new_team_path

@@ -1,0 +1,5 @@
+.form-group
+  b= Project.human_attribute_name :title
+  br
+  = @project.title
+= link_to '編集', edit_project_path(@project), class: 'btn btn-success'

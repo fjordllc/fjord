@@ -1,0 +1,6 @@
+= form_for project, url: url, html: { method: method } do |f|
+  = render 'error', model: project
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  = f.submit '保存', class: 'btn btn-primary'

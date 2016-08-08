@@ -9,3 +9,15 @@ affiliation_2:
   user_id: 2
   team_id: 2
   ownership: true
+
+affiliation_3:
+  id: 3
+  user_id: 1
+  team_id: 3
+  ownership: true
+
+affiliation_4:
+  id: 4
+  user_id: 2
+  team_id: 3
+  ownership: false

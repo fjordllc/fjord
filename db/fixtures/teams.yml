@@ -1,7 +1,11 @@
 team_1:
   id: 1
-  domain: 'fjord'
+  domain: 'komagata'
 
 team_2:
   id: 2
   domain: 'machida'
+
+team_3:
+  id: 3
+  domain: 'fjord'

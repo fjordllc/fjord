@@ -1,0 +1,18 @@
+h2 プロジェクト
+
+.new= link_to '新規プロジェクト', new_our_project_path, class: 'btn btn-default'
+
+table.table.projects
+  thead
+    tr
+      th.title= Project.human_attribute_name :title
+      th.actions
+  tbody
+    - @projects.each do |project|
+      tr
+        td= link_to project.title, our_project_path(project)
+        td.actions
+          button.btn.btn-default.start
+            i.fa.fa-play
+          = link_to '編集', edit_our_project_path(project), class: 'edit btn btn-default'
+          = link_to '削除', our_project_url(project), data: { confirm: '本当によろしいですか？' }, method: :delete, class: 'delete btn btn-default'
