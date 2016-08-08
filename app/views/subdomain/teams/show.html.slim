@@ -1,0 +1,8 @@
+h2 チーム
+
+h3 メンバー
+
+ul
+  - @team.users.each do |user|
+    li
+      .name= user.email

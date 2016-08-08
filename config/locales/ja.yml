@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       team: チーム
+      project: プロジェクト
     attributes:
       user:
         email: メールアドレス
@@ -11,3 +12,5 @@ ja:
         remember_me: ログイン状態を保存する
       team:
         domain: ドメイン
+      project:
+        title: タイトル
