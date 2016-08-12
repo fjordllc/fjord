@@ -1,6 +1,6 @@
 class Subdomain::ProjectsController < Subdomain::BaseController
-  before_action :set_our_project, only: %i(show edit update destroy)
-  before_action :set_our_projects, only: %i(index)
+  before_action :set_project, only: %i(show edit update destroy)
+  before_action :set_projects, only: %i(index)
 
   def index
   end
@@ -20,7 +20,7 @@ class Subdomain::ProjectsController < Subdomain::BaseController
     @project.team = our_team
 
     if @project.save
-      redirect_to our_projects_url, notice: 'プロジェクトを作成しました。'
+      redirect_to projects_url, notice: 'プロジェクトを作成しました。'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Subdomain::ProjectsController < Subdomain::BaseController
 
   def update
     if @project.update(project_params)
-      redirect_to our_projects_url, notice: 'プロジェクトを変更しました。'
+      redirect_to projects_url, notice: 'プロジェクトを変更しました。'
     else
       render :edit
     end
@@ -36,15 +36,15 @@ class Subdomain::ProjectsController < Subdomain::BaseController
 
   def destroy
     @project.destroy
-    redirect_to our_projects_url, notice: 'プロジェクトを削除しました。'
+    redirect_to projects_url, notice: 'プロジェクトを削除しました。'
   end
 
   private
-    def set_our_project
+    def set_project
       @project = our_team.projects.find(params[:id])
     end
 
-    def set_our_projects
+    def set_projects
       @projects = our_team.projects
     end
 

@@ -19,8 +19,6 @@ gem 'sassc-rails'
 gem 'flutie'
 gem 'devise'
 gem 'devise-i18n'
-gem 'devise_invitable', '~> 1.6.0'
-gem 'simple_seed'
 
 group :production, :staging, :review do
   gem 'rails_12factor'
