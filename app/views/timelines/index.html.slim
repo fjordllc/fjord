@@ -1,0 +1,9 @@
+h2 タイムライン
+ul
+  - @timelines.each do |timeline|
+    - status = timeline[1][:status]
+    - transaction = timeline[1][:data]
+    - time = status == '開始' ? transaction.started_at : transaction.finished_at 
+    - if time
+      li
+        | #{l time}: #{transaction.project.title}を#{status}。
