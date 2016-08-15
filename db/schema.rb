@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808114813) do
+ActiveRecord::Schema.define(version: 20160815103749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20160808114813) do
     t.index ["team_id"], name: "index_affiliations_on_team_id", using: :btree
     t.index ["user_id", "team_id"], name: "index_affiliations_on_user_id_and_team_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_affiliations_on_user_id", using: :btree
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text     "body",       null: false
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_notes_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_notes_on_user_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|
@@ -71,6 +81,8 @@ ActiveRecord::Schema.define(version: 20160808114813) do
 
   add_foreign_key "affiliations", "teams"
   add_foreign_key "affiliations", "users"
+  add_foreign_key "notes", "projects"
+  add_foreign_key "notes", "users"
   add_foreign_key "projects", "teams"
   add_foreign_key "transactions", "projects"
   add_foreign_key "transactions", "users"

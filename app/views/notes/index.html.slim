@@ -1,0 +1,14 @@
+h2 ノート
+
+ul
+  - @notes.each do |note|
+    li
+      = l note.created_at
+      |: 
+      span.body= note.body
+      |  
+      span.edit= link_to '[編集]', edit_note_path(note)
+      |  
+      span.edit= link_to '[削除]', note_path(note), method: :delete
+
+= render 'form', note: @note

@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       team: チーム
       project: プロジェクト
+      note: ノート
     attributes:
       user:
         email: メールアドレス
@@ -14,3 +15,5 @@ ja:
         domain: ドメイン
       project:
         title: タイトル
+      note:
+        body: 本文

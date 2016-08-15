@@ -1,0 +1,11 @@
+= form_for note do |f|
+  = render 'error', model: note
+  .row
+    .col-md-2
+      .form-group
+        = f.select :project_id, options_from_collection_for_select(current_user.projects, :id, :title), {}, class: 'form-control'
+    .col-md-9
+      .form-group
+        = f.text_area :body, class: 'form-control'
+    .col-md-1
+      = f.submit '保存', class: 'btn btn-primary'
