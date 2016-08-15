@@ -13,10 +13,6 @@ class User < ApplicationRecord
     Project.where(team_id: teams.ids)
   end
 
-  def transactions
-    Transaction.where(project_id: projects.ids)
-  end
-
   def create_my_team
     transaction do
       unless my_team
