@@ -1,5 +1,5 @@
 h2 ノート
-
+.format= link_to 'Markdown', notes_path(format: 'md'), target: '_blank', class: 'btn btn-default btn-xs'
 .list-group
   - @notes.each.with_index do |note, i|
     = date_separater(@notes, note, i)

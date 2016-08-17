@@ -1,3 +1,5 @@
+# 作業
+
 <% @timelines.each do |timeline| %>
 - <%= timeline.time.strftime('%H時%m分') %>: <%= timeline.project.title %>を<%= timeline.status %>。
 <% end %>

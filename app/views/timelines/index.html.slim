@@ -1,5 +1,5 @@
 h2 タイムライン
-
+.format= link_to 'Markdown', timelines_path(format: 'md'), target: '_blank', class: 'btn btn-default btn-xs'
 .list-group
   - @timelines.each.with_index do |timeline, i|
     - if timeline.target_time
