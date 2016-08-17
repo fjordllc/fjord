@@ -2,10 +2,11 @@ h2 タイムライン
 
 .list-group
   - @timelines.each.with_index do |timeline, i|
-    = date_separater(@timelines, timeline, i)
+    - if timeline.target_time
+      = date_separater(@timelines, timeline, i)
 
-    article.list-group-item
-      .description #{timeline.project.title}を#{timeline.status}。
-      footer
-        span.project= timeline.project.title
-        time= l timeline.time, format: :xshort
+      article.list-group-item
+        .description #{timeline.project.title}を#{timeline.status}。
+        footer
+          span.project= timeline.project.title
+          time= l timeline.time, format: :xshort
