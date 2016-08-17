@@ -3,7 +3,7 @@
   .row
     .col-md-2
       .form-group
-        = f.select :project_id, options_from_collection_for_select(current_user.projects, :id, :title), {}, class: 'form-control'
+        = f.select :project_id, options_from_collection_for_select(current_user.projects, :id, :title, selected: session[:latest_project_id_in_note]), {}, class: 'form-control'
     .col-md-9
       .form-group
         = f.text_area :body, class: 'form-control'

@@ -16,6 +16,7 @@ class NotesController < ApplicationController
 
     if @note.save
       redirect_to notes_url, notice: 'ノートを投稿しました。'
+      session[:latest_project_id_in_note] = @note.project.id
     else
       render :index
     end

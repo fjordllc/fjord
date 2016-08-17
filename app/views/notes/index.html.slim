@@ -1,14 +1,23 @@
 h2 ノート
 
-ul
-  - @notes.each do |note|
-    li
-      = l note.created_at
-      |: 
-      span.body= note.body
-      |  
-      span.edit= link_to '[編集]', edit_note_path(note)
-      |  
-      span.edit= link_to '[削除]', note_path(note), method: :delete
+.list-group
+  - @notes.each.with_index do |note, i|
+    - if i > 0
+      - prev_note = @notes[i - 1]
+      - if note.created_at.day != prev_note.created_at.day
+        - if note.created_at.to_date == Date.current
+          .date-separater 今日
+        - elsif note.created_at.to_date == Date.current.prev_day
+          .date-separater 昨日
+        - else
+          .date-separater= l note.created_at.to_date, format: :xshort
+
+    article.list-group-item
+      span.body= simple_format note.body
+      footer
+        span.project= note.project.title
+        time= l note.created_at, format: :xshort
+        span.edit= link_to '[編集]', edit_note_path(note)
+        span.delete= link_to '[削除]', note_path(note), method: :delete
 
 = render 'form', note: @note
