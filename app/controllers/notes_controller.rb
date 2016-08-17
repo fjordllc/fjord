@@ -41,7 +41,7 @@ class NotesController < ApplicationController
     end
 
     def set_my_notes
-      @notes = current_user.notes
+      @notes = current_user.notes.order(:id)
     end
 
     def note_params

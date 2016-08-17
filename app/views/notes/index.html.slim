@@ -2,15 +2,7 @@ h2 ノート
 
 .list-group
   - @notes.each.with_index do |note, i|
-    - if i > 0
-      - prev_note = @notes[i - 1]
-      - if note.created_at.day != prev_note.created_at.day
-        - if note.created_at.to_date == Date.current
-          .date-separater 今日
-        - elsif note.created_at.to_date == Date.current.prev_day
-          .date-separater 昨日
-        - else
-          .date-separater= l note.created_at.to_date, format: :xshort
+    = date_separater(@notes, note, i)
 
     article.list-group-item
       span.body= simple_format note.body
