@@ -1,0 +1,15 @@
+## 作業時間
+
+<%= l @start_time, format: :xxshort %> - <%= l @finish_time, format: :xxshort %>
+
+## 作業内容
+
+<% @timelines.each do |timeline| %>
+- <%= timeline.time.strftime('%H時%m分') %>: <%= timeline.project.title %>を<%= timeline.status %>。
+<% end %>
+
+## 分報
+
+<% @notes.each do |note| %>
+- <%= note.created_at.strftime('%H時%m分') %>: <%= note.body %>
+<% end %>

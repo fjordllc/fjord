@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  resource :report, only: :show
   resources :teams, only: %i(index create new)
   resources :projects do
     resource :transaction, only: %i(create destroy)

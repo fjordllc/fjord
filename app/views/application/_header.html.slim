@@ -9,6 +9,7 @@ nav.navbar.navbar-default
       = link_to 'fjord.cm', root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
+          li= link_to 'レポート', report_path
           li= link_to 'プロジェクト', projects_path
           li= link_to 'タイムライン', timelines_path
           li= link_to 'ノート', notes_path
