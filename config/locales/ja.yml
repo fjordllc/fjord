@@ -1,4 +1,11 @@
 ja:
+  date:
+    formats:
+      xshort: "%m月%d日"
+  time:
+    formats:
+      xshort: "%m月%d日 %H時%M分"
+      xxshort: "%H:%M"
   activerecord:
     models:
       user: ユーザー
@@ -17,10 +24,5 @@ ja:
         title: タイトル
       note:
         body: 本文
-  date:
-    formats:
-      xshort: "%m月%d日"
-  time:
-    formats:
-      xshort: "%m月%d日 %H時%M分"
-      xxshort: "%H:%M"
+  start: 開始
+  finish: 終了
