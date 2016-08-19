@@ -4,10 +4,4 @@ h2 タイムライン
   - @timelines.each.with_index do |timeline, i|
     - if timeline.time
       = date_separater(@timelines, timeline, i)
-      article.list-group-item
-        .description
-          = tag_status_icon(timeline.status)
-          span #{timeline.project.title}を#{t(timeline.status)}。
-        footer
-          span.project= timeline.project.title
-          time= l timeline.time, format: :xshort
+      = render 'timeline', timeline: timeline

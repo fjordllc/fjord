@@ -1,0 +1,7 @@
+article.list-group-item
+  span.body= simple_format note.body
+  footer
+    span.project= note.project.title
+    time= l note.created_at, format: :xshort
+    span.edit= link_to '[編集]', edit_note_path(note)
+    span.delete= link_to '[削除]', note_path(note), method: :delete

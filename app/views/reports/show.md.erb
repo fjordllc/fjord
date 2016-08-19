@@ -5,11 +5,11 @@
 ## 作業内容
 
 <% @timelines.each do |timeline| %>
-- <%= timeline.time.strftime('%H時%m分') %>: <%= timeline.project.title %>を<%= timeline.status %>。
+<%= render 'timelines/timeline_md', timeline: timeline -%>
 <% end %>
 
 ## 分報
 
 <% @notes.each do |note| %>
-- <%= note.created_at.strftime('%H時%m分') %>: <%= note.body %>
+<%= render 'notes/note_md', note: note -%>
 <% end %>

@@ -1,5 +1,5 @@
 # 分報
 
 <% @notes.each do |note| %>
-- <%= note.created_at.strftime('%H時%m分') %>: <%= note.body %>
+<%= render 'notes/note_md', note: note -%>
 <% end %>

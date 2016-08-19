@@ -14,6 +14,14 @@ class User < ApplicationRecord
     Project.where(team_id: teams.ids)
   end
 
+  def current_transaction
+    transactions.active.order(id: :desc).limit(1).try(:first)
+  end
+
+  def current_project
+    current_transaction.try(:project)
+  end
+
   def create_my_team
     transaction do
       unless my_team

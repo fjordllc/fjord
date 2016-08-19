@@ -5,6 +5,7 @@ class NotesController < ApplicationController
 
   def index
     @note = Note.new
+    @teams = current_user.teams
   end
 
   def edit

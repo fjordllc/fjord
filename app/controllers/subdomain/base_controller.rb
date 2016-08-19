@@ -2,7 +2,7 @@ class Subdomain::BaseController < ApplicationController
   before_action :authenticate_team_user!
   before_action :set_team
   layout 'subdomain'
-  helper_method :our_team, :current_transaction, :current_project
+  helper_method :our_team
 
   private
 
@@ -11,14 +11,6 @@ class Subdomain::BaseController < ApplicationController
     unless current_user.teams.include?(team_by_subdomain)
       redirect_to root_url(subdomain: false), notice: 'このチームにアクセスできません'
     end
-  end
-
-  def current_transaction
-    current_user.transactions.by_team(@team).active.order(id: :desc).limit(1).try(:first)
-  end
-
-  def current_project
-    current_transaction.try(:project)
   end
 
   def set_team

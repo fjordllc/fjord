@@ -12,7 +12,7 @@ table.table.projects
       tr(class="#{project_class(project)}")
         td= link_to project.title, project
         td.actions
-          - if project == current_project
+          - if project == current_user.current_project
             = link_to subdomain_project_transaction_path(subdomain_project_id: project.id), method: :delete do
               button.btn.btn-default.start
                 i.fa.fa-stop

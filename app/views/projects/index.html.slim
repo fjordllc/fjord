@@ -13,7 +13,7 @@ table.table.projects
           td= link_to project.team.domain, root_url(subdomain: project.team.domain)
           td= link_to project.title, project_url(project, subdomain: project.team.domain)
           td.actions
-            - if project == current_project
+            - if project == current_user.current_project
               = link_to project_transaction_url(project_id: project.id), method: :delete do
                 button.btn.btn-default.start
                   i.fa.fa-stop
