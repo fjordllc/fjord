@@ -2,17 +2,17 @@
   .col-md-8
     h2 ノート
     .format= link_to 'Markdown', notes_path(format: 'md'), target: '_blank', class: 'btn btn-default btn-xs'
-    .list-group
+    .list-group.notes
       - @notes.each.with_index do |note, i|
         = date_separater(@notes, note, i)
         = render 'notes/note', note: note
   .col-md-4
     h2 メンバー
-    .list-group
+    .list-group.users
       - @teams.each do |team|
         - if team.users.count > 1
           - team.users.each do |user|
-            article.list-group-item
+            article.list-group-item.user
               .email= user.email.split('@').first
               .project
                 - if user.current_project
@@ -21,4 +21,6 @@
                 - else
                   | Zzzz
 
-= render 'form', note: @note
+footer.form
+  .inner
+    = render 'form', note: @note

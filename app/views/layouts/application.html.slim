@@ -16,5 +16,9 @@ html lang="ja"
   body(class="#{body_class}")
     = render 'header'
     = render 'alert'
+    - if user_signed_in?
+      = render 'tracker'
     .container
       = yield
+    #footer
+      | fjord, llc

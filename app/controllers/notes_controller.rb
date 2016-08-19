@@ -2,10 +2,10 @@ class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_note, only: %i(edit update destroy)
   before_action :set_my_notes, only: %i(index create)
+  before_action :set_my_teams, only: %i(index create)
 
   def index
     @note = Note.new
-    @teams = current_user.teams
   end
 
   def edit
@@ -14,6 +14,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user = current_user
+    @note.project = current_user.current_project
 
     if @note.save
       redirect_to notes_url, notice: 'ノートを投稿しました。'
@@ -45,7 +46,11 @@ class NotesController < ApplicationController
       @notes = current_user.notes.order(:id)
     end
 
+    def set_my_teams
+      @teams = current_user.teams
+    end
+
     def note_params
-      params.require(:note).permit(:body, :project_id)
+      params.require(:note).permit(:body)
     end
 end

@@ -6,6 +6,7 @@ ja:
     formats:
       xshort: "%m月%d日 %H時%M分"
       xxshort: "%H:%M"
+      timer: "%H:%M:"
   activerecord:
     models:
       user: ユーザー
@@ -24,5 +25,7 @@ ja:
         title: タイトル
       note:
         body: 本文
+        project: プロジェクト
   start: 開始
   finish: 終了
+  select_project: プロジェクトを選択

@@ -1,10 +1,7 @@
 = form_for note do |f|
   = render 'error', model: note
   .row
-    .col-md-2
-      .form-group
-        = f.select :project_id, options_from_collection_for_select(current_user.projects, :id, :title, selected: session[:latest_project_id_in_note]), {}, class: 'form-control'
-    .col-md-9
+    .col-md-11
       .form-group
         = f.text_area :body, class: 'form-control'
     .col-md-1
