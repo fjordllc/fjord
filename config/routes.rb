@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resource :transaction, only: %i(create destroy)
       end
       resource :team, as: :our_team
+      resources :users, only: %i(index show)
     end
   end
 

@@ -1,0 +1,6 @@
+h1 ユーザー
+
+.list-group
+  - @team.users.each do |user|
+    article.list-group-item
+      = link_to user.full_name, user
