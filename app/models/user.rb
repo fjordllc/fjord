@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_one :my_affiliation, -> { where(ownership: true) }, class_name: 'Affiliation'
   has_one :my_team, through: :my_affiliation, source: :team
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   def projects
     Project.where(team_id: teams.ids)
   end
@@ -33,5 +36,9 @@ class User < ApplicationRecord
         )
       end
     end
+  end
+
+  def full_name
+    "#{last_name} #{first_name}"
   end
 end

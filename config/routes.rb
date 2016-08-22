@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   resource :report, only: :show
   resources :teams, only: %i(index create new)
   resources :projects do

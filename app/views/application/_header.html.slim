@@ -20,6 +20,7 @@ nav.navbar.navbar-default
             a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
               = render 'user', user: current_user
             ul.dropdown-menu
+              li= link_to 'アカウント編集', edit_user_registration_url(subdomain: false)
               li= link_to 'サインアウト', destroy_user_session_url(subdomain: false)
         - else
           li= link_to 'サインイン', new_user_session_url(subdomain: false)

@@ -13,11 +13,11 @@
         - if team.users.count > 1
           - team.users.each do |user|
             article.list-group-item.user
-              .email= user.email.split('@').first
+              .name= user.full_name
               .project
                 - if user.current_project
                   i.fa.fa-play.status
-                  = link_to user.current_project.title, user.current_project
+                  = link_to user.current_project.title, project_url(user.current_project, subdomain: user.current_project.team.domain)
                 - else
                   | Zzzz
 

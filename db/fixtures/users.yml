@@ -1,11 +1,15 @@
 user_1:
   id: 1
+  first_name: 真幸
+  last_name: 駒形
   email: komagata@fjord.jp
   encrypted_password: $2a$11$UId/JAaZJWTkHGX1ZowDSOaUaQE3jStMEzCwnXQ7fiKywAFkyi3d.
   confirmed_at: 2016-01-01 00:00:00
 
 user_2:
   id: 2
+  first_name: 哲平
+  last_name: 町田
   email: machida@fjord.jp
   encrypted_password: $2a$11$UId/JAaZJWTkHGX1ZowDSOaUaQE3jStMEzCwnXQ7fiKywAFkyi3d.
   confirmed_at: 2016-01-01 00:00:00
