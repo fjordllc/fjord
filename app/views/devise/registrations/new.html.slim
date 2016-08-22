@@ -1,22 +1,40 @@
-.row
-  .col-md-6.col-md-offset-3
-    h2 サインアップ
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
-      .form-group
-        = f.label :first_name
-        = f.text_field :first_name, class: 'form-control'
-      .form-group
-        = f.label :last_name
-        = f.text_field :last_name, class: 'form-control'
-      .form-group
-        = f.label :email
-        = f.email_field :email, autofocus: true, class: 'form-control'
-      .form-group
-        = f.label :password
-        = f.password_field :password, autocomplete: 'off', class: 'form-control'
-      .form-group
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
-      = f.submit 'サインアップ', class: 'btn btn-default'
-    = render 'devise/shared/links'
+- content_for(:page_classes, "has-no-header has-no-footer signin-form-page")
+
+= devise_error_messages!
+.signin-form
+  = render "devise/shared/signin_form_header", title: "サインアップ"
+  .signin-form__body
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'signin-form__form' }) do |f|
+      .signin-form__input-items
+        .signin-form-input-item
+          = f.label :first_name, class: "signin-form-input-item__label"
+          = f.text_field :first_name, class: 'signin-form-input-item__text-input'
+        .signin-form-input-item
+          = f.label :last_name, class: "signin-form-input-item__label"
+          = f.text_field :last_name, class: 'signin-form-input-item__text-input'
+        .signin-form-input-item
+          = f.label :email, class: "signin-form-input-item__label"
+          = f.email_field :email, autofocus: true, class: 'signin-form-input-item__text-input'
+        .signin-form-input-item
+          = f.label :password, class: "signin-form-input-item__label"
+          = f.password_field :password, autocomplete: 'off', class: 'signin-form-input-item__text-input'
+        .signin-form-input-item
+          = f.label :password_confirmation, class: "signin-form-input-item__label"
+          = f.password_field :password_confirmation, autocomplete: 'off', class: 'signin-form-input-item__text-input'
+      signin-form__actions
+        ul.signin-form__actions-items
+          li.signin-form-action-item
+            = f.submit 'サインアップ', class: 'is-button-normal-sm-primary is-block signin-form-action-item__action'
+
+  .signin-form__rescue
+    = link_to 'アカウント確認メールが届かない場合', new_confirmation_path(resource_name), class: "signin-form__rescue-link"
+
+
+  footer.signin-form__footer
+    nav.signin-form-other-forms-nav
+      ul.signin-form-other-forms-nav__items
+        li.signin-form-other-forms-nav__item
+          = link_to 'サインイン', new_session_path(resource_name), class: "signin-form-other-forms-nav__item-link"
+        li.signin-form-other-forms-nav__item
+          = link_to 'パスワード再設定', new_password_path(resource_name), class: "signin-form-other-forms-nav__item-link"
+    

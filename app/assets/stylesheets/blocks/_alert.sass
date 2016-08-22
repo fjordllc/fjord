@@ -1,0 +1,36 @@
+.alert
+  +padding(vertical, .75rem)
+  background-color: $danger
+  &.has-list
+    padding-bottom: .25rem
+  &.is-success
+    background-color: $success
+  &.is-danger,
+  &.is-error
+    background-color: $danger
+    color: $danger-text
+.alert__container
+  +position(relative)
+  +padding(horizontal, 2rem)
+  text-align: center
+.alert__close
+  display: block
+  +position(absolute, right 0, top -1rem)
+  +text-block(2rem 1, 600 $reversal-text)
+  opacity: .5
+  &:hover
+    color: $reversal-text
+    text-decoration: none
+    cursor: pointer
+    opacity: .8
+.alert__title
+  +text-block(14px 1.45 .75rem)
+.alert__items
+  li
+    display: inline-block
+    +text-block(.75rem 1.45, center)
+    padding: .3125rem .625rem
+    border-radius: .25rem
+    margin: 0 .375rem .5rem
+    background-color: rgba(white, .2)
+    border: solid 1px #da5563

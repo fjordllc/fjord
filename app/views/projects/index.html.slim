@@ -1,23 +1,24 @@
-h2 プロジェクト
+- content_for(:page_classes, "has-no-footer has-page-header-nav")
 
-table.table.projects
-  thead
-    tr
-      th.team チーム
-      th.title= Project.human_attribute_name :title
-      th.actions
-  tbody
-    - current_user.teams.each do |team|
-      - team.projects.each do |project|
-        tr(class="#{project_class(project)}")
-          td= link_to project.team.domain, root_url(subdomain: project.team.domain)
-          td= link_to project.title, project_url(project, subdomain: project.team.domain)
-          td.actions
-            - if project == current_user.current_project
-              = link_to project_transaction_url(project_id: project.id), method: :delete do
-                button.btn.btn-default.start
-                  i.fa.fa-stop
-            - else
-              = link_to project_transaction_url(project_id: project.id), method: :post do
-                button.btn.btn-default.start
-                  i.fa.fa-play
+.container
+  table.table.projects
+    thead
+      tr
+        th.team チーム
+        th.title= Project.human_attribute_name :title
+        th.actions
+    tbody
+      - current_user.teams.each do |team|
+        - team.projects.each do |project|
+          tr(class="#{project_class(project)}")
+            td= link_to project.team.domain, root_url(subdomain: project.team.domain)
+            td= link_to project.title, project_url(project, subdomain: project.team.domain)
+            td.actions
+              - if project == current_user.current_project
+                = link_to project_transaction_url(project_id: project.id), method: :delete do
+                  button.start.is-button-normal-xs-secondary.is-icon
+                    i.fa.fa-stop
+              - else
+                = link_to project_transaction_url(project_id: project.id), method: :post do
+                  button.start.is-button-normal-xs-secondary.is-icon
+                    i.fa.fa-play

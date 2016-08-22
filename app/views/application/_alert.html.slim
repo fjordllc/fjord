@@ -1,4 +1,16 @@
 - if notice
-  p.alert.alert-success= notice
+  .alert.is-success.fade.in
+    .container
+      .alert__container
+        button(type="button" class="close alert__close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true")
+            | &times;
+        p= notice
 - if alert
-  p.alert.alert-danger= alert
+  .alert.is-danger.fade.in
+    .container
+      .alert__container
+        button(type="button" class="close alert__close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true")
+            | &times;
+        p= alert

@@ -1,10 +1,8 @@
-#tracker
+#tracker.tracker
   .container
-    .row
-      .col-xs-8.col-md-3.col-md-offset-4.project_select
-        = collection_select :project, :id, current_user.projects, :id, :title, { selected: current_user.current_project&.id, include_blank: t('select_project') }, class: 'form-control'
-      .col-xs-2.col-md-1.time
-        .timer(data-start-unixtime="#{project_time}") 00:00:00
-      .col-xs-2.col-md-1
-        button.btn.btn-default.stop
-          i.fa.fa-stop
+    .tracker__container
+      .tracker__projects
+        = collection_select :project, :id, current_user.projects, :id, :title, { selected: current_user.current_project&.id, include_blank: t('select_project') }, class: 'tracker__projects-select'
+      .timer.tracker__timer(data-start-unixtime="#{project_time}") 00:00:00
+      button.tracker__stop.is-button-normal-xs-secondary.is-icon
+        i.fa.fa-stop

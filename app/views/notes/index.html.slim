@@ -1,26 +1,34 @@
-.row
-  .col-md-8
-    h2 ノート
-    .format= link_to 'Markdown', notes_path(format: 'md'), target: '_blank', class: 'btn btn-default btn-xs'
-    .list-group.notes
-      - @notes.each.with_index do |note, i|
-        = date_separater(@notes, note, i)
-        = render 'notes/note', note: note
-  .col-md-4
-    h2 メンバー
-    .list-group.users
-      - @teams.each do |team|
-        - if team.users.count > 1
-          - team.users.each do |user|
-            article.list-group-item.user
-              .name= user.full_name
-              .project
-                - if user.current_project
-                  i.fa.fa-play.status
-                  = link_to user.current_project.title, project_url(user.current_project, subdomain: user.current_project.team.domain)
-                - else
-                  | Zzzz
+- content_for(:page_classes, "has-no-footer has-page-header-nav")
 
-footer.form
-  .inner
-    = render 'form', note: @note
+.container
+  .row
+    .col-md-3
+      ul
+        - current_user.projects.each do |project|
+          li
+            = project.title
+    .col-md-6
+      .notes
+        .format= link_to 'Markdown', notes_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'
+        .list-group.notes
+          - @notes.each.with_index do |note, i|
+            = date_separater(@notes, note, i)
+            = render 'notes/note', note: note
+        footer.form
+          .inner
+            = render 'form', note: @note
+
+    .col-md-3
+      h2 メンバー
+      .list-group.users
+        - @teams.each do |team|
+          - if team.users.count > 1
+            - team.users.each do |user|
+              article.list-group-item.user
+                .name= user.full_name
+                .project
+                  - if user.current_project
+                    i.fa.fa-play.status
+                    = link_to user.current_project.title, project_url(user.current_project, subdomain: user.current_project.team.domain)
+                  - else
+                    | Zzzz
