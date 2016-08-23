@@ -1,7 +1,9 @@
-h2 タイムライン
-.format= link_to 'Markdown', timelines_path(format: 'md'), target: '_blank', class: 'btn btn-default btn-xs'
-.list-group
-  - @timelines.each.with_index do |timeline, i|
-    - if timeline.time
-      = date_separater(@timelines, timeline, i)
-      = render 'timeline', timeline: timeline
+- content_for(:page_classes, "has-no-footer has-page-header-nav")
+
+.container
+  .format= link_to 'Markdown', timelines_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'
+  .list-group
+    - @timelines.each.with_index do |timeline, i|
+      - if timeline.time
+        = date_separater(@timelines, timeline, i)
+        = render 'timeline', timeline: timeline

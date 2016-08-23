@@ -5,20 +5,25 @@ html lang="ja"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title FJORD
     = favicon_link_tag
-    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', media: 'all'
-    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity: 'sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin: 'anonymous'
-    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css', integrity: 'sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r', crossorigin: 'anonymous'
-    = stylesheet_link_tag '//fonts.googleapis.com/earlyaccess/notosansjapanese.css', media: 'all'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', media: 'all'
+    = stylesheet_link_tag '//fonts.googleapis.com/earlyaccess/notosansjapanese.css', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', integrity: 'sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS', crossorigin: 'anonymous'
     = csrf_meta_tags
-  body(class="#{body_class}")
-    = render 'header'
+  body(class="#{body_class} #{yield(:page_classes)}")
+    - unless yield(:page_classes).include?('has-no-header')
+      = render 'header'
     = render 'alert'
-    - if user_signed_in?
-      = render 'tracker'
-    .container
-      = yield
-    #footer
-      | fjord, llc
+    .body
+      - if user_signed_in?
+        .page-header
+          = render 'tracker'
+          - if yield(:page_classes).include?('has-page-header-nav')
+            = render 'page_header_nav'
+        .page-body
+          = yield
+      - else
+        = yield
+    - unless yield(:page_classes).include?('has-no-footer')
+      footer.footer#footer
+        | fjord, llc

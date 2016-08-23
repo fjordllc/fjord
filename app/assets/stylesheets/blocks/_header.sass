@@ -1,0 +1,22 @@
+.header
+  height: 3.125rem
+  +padding(vertical, .625rem)
+.header__container
+  +position(relative)
+  display: flex
+  justify-content: space-between
+  align-items: center
+.header__logo-image
+  +size(1.75rem)
+
+.header-global-nav__item
+  display: inline-block
+.header-global-nav__item-link
+  +block-link
+  +text-block(.8125rem 1.25rem, 600 $default-text)
+  padding: .25rem .5rem
+
+.header-auth-nav
+  +position(absolute, right 0, top 0)
+.header-auth-nav__item
+  display: inline-block

@@ -1,10 +1,25 @@
-.row
-  .col-md-6.col-md-offset-3
-    h2 パスワードを忘れましたか？
-    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-      = devise_error_messages!
-      .form-group
-        = f.label :email
-        = f.email_field :email, autofocus: true, class: 'form-control'
-      = f.submit 'パスワードの再設定方法を送信する', class: 'btn btn-default'
-    = render 'devise/shared/links'
+- content_for(:page_classes, "has-no-header has-no-footer signin-form-page")
+
+= devise_error_messages!
+.signin-form
+  = render "devise/shared/signin_form_header", title: "パスワード再設定"
+  .signin-form__body
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'signin-form__form' }) do |f|
+      .signin-form__description
+        p
+          | サインアップに使用したメールアドレスを入力してください。パスワード再設定手続きのメールが届きます。
+      .signin-form__input-items
+        .signin-form-input-item
+          = f.label :email, class: "signin-form-input-item__label"
+          = f.email_field :email, autofocus: true, class: 'signin-form-input-item__text-input'
+      .signin-form__actions
+        ul.signin-form__actions-items
+          li.signin-form-action-item
+            = f.submit 'パスワードの再設定', class: 'is-button-normal-sm-primary is-block signin-form-action-item__action'
+  footer.signin-form__footer
+    nav.signin-form-other-forms-nav
+      ul.signin-form-other-forms-nav__items
+        li.signin-form-other-forms-nav__item
+          = link_to 'サインイン', new_session_path(resource_name), class: "signin-form-other-forms-nav__item-link"
+        li.signin-form-other-forms-nav__item
+          = link_to 'サインアップ', new_registration_path(resource_name), class: "signin-form-other-forms-nav__item-link"

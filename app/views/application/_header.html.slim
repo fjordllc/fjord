@@ -1,27 +1,29 @@
-nav.navbar.navbar-default
+header.header
   .container
-    .navbar-header
-      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to 'fjord.cm', root_path, class: 'navbar-brand'
-    #navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-          li= link_to 'ノート', notes_path
-          li= link_to 'プロジェクト', projects_path
-          li= link_to 'タイムライン', timelines_path
-          li= link_to 'レポート', report_path
-          li= link_to 'チーム', teams_path
-      ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          li.dropdown
-            a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
-              = render 'user', user: current_user
-            ul.dropdown-menu
-              li= link_to 'アカウント編集', edit_user_registration_url(subdomain: false)
-              li= link_to 'サインアウト', destroy_user_session_url(subdomain: false)
-        - else
-          li= link_to 'サインイン', new_user_session_url(subdomain: false)
-          li= link_to 'サインアップ', new_user_registration_url(subdomain: false)
+    .header__container
+      = link_to root_path, class: 'header__logo-link' do
+        = image_tag('shared/logo.svg', class: "header__logo-image")
+      - if user_signed_in?
+        nav.header-global-nav
+          ul.header-global-nav__items
+            li.header-global-nav__item.dropdown
+              a.dropdown-toggle.header-global-nav__item-link(aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button")
+                span.icon
+                span.login-name チーム
+                span.caret
+              ul.dropdown-menu
+                - current_user.teams.each do |team|
+                  li.header-temas-nav__item= link_to team.domain, our_root_url(subdomain: team.domain)
+            li.header-global-nav__item.dropdown
+              a.dropdown-toggle.header-global-nav__item-link(aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button")
+                span.icon
+                span.login-name= current_user.email
+                span.caret
+              ul.dropdown-menu
+                li= link_to 'アカウント編集', edit_user_registration_url(subdomain: false)
+                li= link_to 'サインアウト', destroy_user_session_url(subdomain: false)
+      - else
+        nav.header-auth-nav
+          ul.header-auth-nav__items
+            li.header-auth-nav__item= link_to 'サインイン', new_user_session_url(subdomain: false), class: "is-button-normal-xs-secondary is-block"
+            li.header-auth-nav__item= link_to 'サインアップ', new_user_registration_url(subdomain: false), class: "is-button-normal-xs-secondary is-block"

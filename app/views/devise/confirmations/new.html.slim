@@ -1,10 +1,24 @@
-.row
-  .col-md-6.col-md-offset-3
-    h2 アカウント確認メール再送
-    = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-      = devise_error_messages!
-      .form-group
-        = f.label :email
-        = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
-      = f.submit 'アカウント確認メール再送', class: 'btn btn-default'
-    = render "devise/shared/links"
+- content_for(:page_classes, "has-no-header has-no-footer signin-form-page")
+
+= devise_error_messages!
+.signin-form
+  = render "devise/shared/signin_form_header", title: "確認メール再送"
+  .signin-form__body
+    = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'signin-form__form' }) do |f|
+      .signin-form__input-items
+        .signin-form-input-item
+          = f.label :email, class: "signin-form-input-item__label"
+          = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'signin-form-input-item__text-input'
+      .signin-form__actions
+        ul.signin-form__actions-items
+          li.signin-form-action-item
+            = f.submit '確認メール再送', class: 'is-button-normal-sm-primary is-block signin-form-action-item__action'
+  footer.signin-form__footer
+    nav.signin-form-other-forms-nav
+      ul.signin-form-other-forms-nav__items
+        li.signin-form-other-forms-nav__item
+          = link_to 'サインイン', new_session_path(resource_name), class: "signin-form-other-forms-nav__item-link"
+        li.signin-form-other-forms-nav__item
+          = link_to 'サインアップ', new_registration_path(resource_name), class: "signin-form-other-forms-nav__item-link"
+
+  = render "devise/shared/links"

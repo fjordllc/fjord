@@ -1,0 +1,11 @@
+nav.page-header-nav
+  .container
+    ul.page-header-nav__items
+      li.page-header-nav__item
+        = link_to 'ノート', notes_path, class: "page-header-nav__item-link #{body_class.include?('notes-index') ? 'is-active' : ''}"
+      li.page-header-nav__item
+        = link_to 'プロジェクト', projects_path, class: "page-header-nav__item-link #{body_class.include?('projects-index') ? 'is-active' : ''}"
+      li.page-header-nav__item
+        = link_to 'タイムライン', timelines_path, class: "page-header-nav__item-link #{body_class.include?('timelines-index') ? 'is-active' : ''}"
+      li.page-header-nav__item
+        = link_to 'レポート', report_path, class: "page-header-nav__item-link #{body_class.include?('reports-show') ? 'is-active' : ''}"

@@ -1,10 +1,11 @@
-h1 トップページ（サインイン済み）
+- content_for(:page_classes, "has-no-footer has-page-header-nav")
 
-- if current_user.teams.present?
-  h2 チームを選択して下さい
-  ul
-    - current_user.teams.each do |team|
-      li= link_to team.domain, our_root_url(subdomain: team.domain)
-- else
-  h2 チームを作成してください
-  p= link_to 'チーム作成', new_team_path
+.container
+  - if current_user.teams.present?
+    h2 チームを選択して下さい
+    ul
+      - current_user.teams.each do |team|
+        li= link_to team.domain, our_root_url(subdomain: team.domain)
+  - else
+    h2 チームを作成してください
+    p= link_to 'チーム作成', new_team_path

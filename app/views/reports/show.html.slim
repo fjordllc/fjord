@@ -1,17 +1,19 @@
-h2 今日のレポート
-.format= link_to 'Markdown', report_path(format: 'md'), target: '_blank', class: 'btn btn-default btn-xs'
+- content_for(:page_classes, "has-no-footer has-page-header-nav")
 
-h3 タイムライン
+.container
+  .format= link_to 'Markdown', report_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'
+  .row
+    .col-md-6
+      h3 タイムライン
+      .list-group
+        - @timelines.each.with_index do |timeline, i|
+          - if timeline.target_time
+            = date_separater(@timelines, timeline, i)
+            = render 'timelines/timeline', timeline: timeline
+    .col-md-6
+      h3 分報
 
-.list-group
-  - @timelines.each.with_index do |timeline, i|
-    - if timeline.target_time
-      = date_separater(@timelines, timeline, i)
-      = render 'timelines/timeline', timeline: timeline
-
-h3 分報
-
-.list-group
-  - @notes.each.with_index do |note, i|
-    = date_separater(@notes, note, i)
-    = render 'notes/note', note: note
+      .list-group
+        - @notes.each.with_index do |note, i|
+          = date_separater(@notes, note, i)
+          = render 'notes/note', note: note
