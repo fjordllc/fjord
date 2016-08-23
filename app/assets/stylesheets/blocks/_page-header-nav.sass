@@ -1,5 +1,11 @@
 .page-header-nav
   margin-top: 1rem
+.page-header-nav__items
+  +media-breakpoint-down(sm)
+    width: 100%
+    +overflow(auto hidden)
+    white-space: nowrap
+    -webkit-overflow-scrolling: touch
 .page-header-nav__item
   display: inline-block
   padding-right: .125rem
