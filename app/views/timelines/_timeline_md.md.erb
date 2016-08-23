@@ -1,1 +1,3 @@
+<% if timeline.time %>
 - <%= timeline.time.strftime('%H時%m分') %>: <%= timeline.project.title %>を<%= t(timeline.status) %>。
+<% end %>

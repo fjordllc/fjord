@@ -6,7 +6,15 @@
       ul
         - current_user.projects.each do |project|
           li
-            = project.title
+            - if project == current_user.current_project
+              = link_to project_transaction_url(project_id: project.id, return_to: notes_url), method: :delete, class: 'is-active' do
+                span.title= project.title
+                i.fa.fa-stop
+            - else
+              = link_to project_transaction_url(project_id: project.id, return_to: notes_url), method: :post do
+                span.title= project.title
+                i.fa.fa-play
+
     .col-md-6
       .notes
         .format= link_to 'Markdown', notes_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'

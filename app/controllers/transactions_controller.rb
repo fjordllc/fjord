@@ -15,12 +15,12 @@ class TransactionsController < ApplicationController
       )
     end
 
-    redirect_to projects_url, notice: '仕事を開始しました。'
+    redirect_to redirect_url, notice: '仕事を開始しました。'
   end
 
   def destroy
     finish_transactions(Time.current)
-    redirect_to projects_url, notice: '仕事を終了しました。'
+    redirect_to redirect_url, notice: '仕事を終了しました。'
   end
 
   private
@@ -29,5 +29,9 @@ class TransactionsController < ApplicationController
         finished_at: time,
         updated_at:  time
       )
+    end
+
+    def redirect_url
+      params[:return_to] || projects_url
     end
 end

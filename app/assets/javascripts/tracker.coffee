@@ -1,6 +1,8 @@
 $ ->
-  $('#tracker select').on 'change', ->
+  $('#tracker .js-select').on 'change', ->
     projectId = $(this).val()
+
+    console.log('projectId: ', projectId)
 
     success = (data) =>
       console.log('success')
@@ -12,8 +14,10 @@ $ ->
         url:     "/projects/#{projectId}/transaction",
         success: success
 
-  $('#tracker .stop').on 'click', ->
+  $('#tracker .js-stop').on 'click', ->
     projectId = $('#tracker select').val()
+
+    console.log('projectId: ', projectId)
 
     success = (data) =>
       console.log('success')

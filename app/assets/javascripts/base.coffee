@@ -13,7 +13,7 @@ $ ->
     ].join(':')
 
   setInterval =>
-    startUnixtime = $('#tracker .timer').data('start-unixtime')
+    startUnixtime = $('.js-timer').data('start-unixtime')
     if startUnixtime
-      $('#tracker .timer')[0].innerText = timer(startUnixtime)
+      $('.js-timer')[0].innerText = timer(startUnixtime)
   ,   1000

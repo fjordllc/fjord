@@ -7,7 +7,7 @@
       h3 タイムライン
       .list-group
         - @timelines.each.with_index do |timeline, i|
-          - if timeline.target_time
+          - if timeline.time
             = date_separater(@timelines, timeline, i)
             = render 'timelines/timeline', timeline: timeline
     .col-md-6
