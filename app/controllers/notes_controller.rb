@@ -16,8 +16,10 @@ class NotesController < ApplicationController
     @note.user = current_user
     @note.project = current_user.current_project
 
+    redirect_url = params[:return_to] || notes_url
+
     if @note.save
-      redirect_to notes_url, notice: 'ノートを投稿しました。'
+      redirect_to redirect_url, notice: 'ノートを投稿しました。'
       session[:latest_project_id_in_note] = @note.project.id
     else
       render :index
@@ -25,8 +27,10 @@ class NotesController < ApplicationController
   end
 
   def update
+    redirect_url = params[:return_to] || notes_url
+
     if @note.update(note_params)
-      redirect_to notes_url, notice: 'ノートを編集しました。'
+      redirect_to redirect_url, notice: 'ノートを編集しました。'
     else
       render :edit
     end

@@ -5,4 +5,4 @@ article.list-group-item
   footer
     span.project= timeline.project.title
     time= l timeline.time, format: :xshort
-    span.edit= link_to '[編集]', edit_transaction_path(timeline.transaction.id, return_to: timelines_path)
+    span.edit= link_to '[編集]', edit_transaction_path(timeline.source_model.id, return_to: timelines_path)
