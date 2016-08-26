@@ -7,3 +7,4 @@
           = f.text_area :body, class: 'form-control'
       .col-md-1.col-xs-4
         = f.submit '保存', class: 'btn btn-primary'
+        = hidden_field_tag :return_to, params[:return_to]

@@ -6,4 +6,4 @@
     - @timelines.each.with_index do |timeline, i|
       - if timeline.time
         = date_separater(@timelines, timeline, i)
-        = render 'timeline', timeline: timeline
+        = render 'timelines/timeline', timeline: timeline

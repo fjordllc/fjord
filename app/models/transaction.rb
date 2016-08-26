@@ -7,36 +7,24 @@ class Transaction < ApplicationRecord
   scope :by_team, ->(team) { where(project_id: team.project_ids.to_a) }
   scope :by_date, ->(date = nil) { where(created_at: date..date.next_day) if date }
 
-  def self.to_sorted_timelines(user, date = nil)
-    transactions = self.where(user: user).by_date(date)
-
-    timelines = {}
-    transactions.each do |transaction|
-      timelines[transaction.sort_index(:start)]  = transaction.to_timeline(:start)
-      timelines[transaction.sort_index(:finish)] = transaction.to_timeline(:finish)
-    end
-
-    timelines.sort.map do |timeline|
-      timeline[1]
-    end
-  end
-
-  def sort_index(status = :start)
+  def sort_key(status = :start) # :start or :finish
     datetime = status == :start ? started_at : finished_at
-    (datetime || FUTURE).to_f + id
+    (datetime || FUTURE).to_f + sprintf('0.%06d', id).to_f
   end
 
-  def datetime(status = :start)
+  def datetime(status = :start) # :start or :finish
     status == :start ? started_at : finished_at
   end
 
-  def to_timeline(status = :start)
-    Timeline.new(
-      status:      status,
-      time:        datetime(status),
-      transaction: self,
-      project:     project,
-      user:        user
+  def to_activity(status = :start) # :start or :finish
+    Activity.new(
+      status: status,
+      time: datetime(status),
+      description: I18n.t('start_xxxx', target: project.title, verb: I18n.t(status)),
+      source_model: self,
+      project: project,
+      user: user,
+      sort_key: sort_key(status)
     )
   end
 end

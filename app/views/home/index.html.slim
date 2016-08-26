@@ -1,11 +1,47 @@
 - content_for(:page_classes, "has-no-footer has-page-header-nav")
 
 .container
-  - if current_user.teams.present?
-    h2 チームを選択して下さい
-    ul
-      - current_user.teams.each do |team|
-        li= link_to team.domain, our_root_url(subdomain: team.domain)
-  - else
-    h2 チームを作成してください
-    p= link_to 'チーム作成', new_team_path
+  .row
+    .col-md-3
+      ul
+        - current_user.projects.each do |project|
+          li
+            - if project == current_user.current_project
+              = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :delete, class: 'is-active' do
+                span.title= project.title
+                i.fa.fa-stop
+            - else
+              = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :post do
+                span.title= project.title
+                i.fa.fa-play
+
+    .col-md-6
+      - if @day == Date.current
+        h2 今日
+      - else
+        h2= @day
+
+      .notes
+        .format= link_to 'Markdown', report_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'
+        .list-group.notes
+          - @activities.each.with_index do |activity, i|
+            = date_separater(@activities, activity, i)
+            = render 'activities/activity', activity: activity
+        footer.form
+          .inner
+            = render 'notes/form', note: Note.new, return_to: root_url
+
+    .col-md-3
+      h2 メンバー
+      .list-group.users
+        - @teams.each do |team|
+          - if team.users.count > 1
+            - team.users.each do |user|
+              article.list-group-item.user
+                .name= user.full_name
+                .project
+                  - if user.current_project
+                    i.fa.fa-play.status
+                    = link_to user.current_project.title, project_url(user.current_project, subdomain: user.current_project.team.domain)
+                  - else
+                    | Zzzz
