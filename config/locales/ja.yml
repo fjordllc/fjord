@@ -28,6 +28,10 @@ ja:
       note:
         body: 本文
         project: プロジェクト
+      transaction:
+        started_at: 開始日時
+        finished_at: 完了日時
+        project: プロジェクト
   start: 開始
   finish: 終了
   select_project: プロジェクトを選択

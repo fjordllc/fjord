@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   resource :report, only: :show
   resources :teams, only: %i(index create new)
   resources :projects do
-    resource :transaction, only: %i(create destroy)
+    resource :transaction, only: %i(create destroy), controller: 'projects/transactions'
   end
+  resources :transactions, only: %i(edit update)
   resources :notes, only: %i(index edit create update destroy)
   resources :timelines, only: :index
   root 'home#index'

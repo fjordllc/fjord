@@ -1,0 +1,13 @@
+= form_for transaction do |f|
+  = render 'error', model: transaction
+  .container
+    .form-group
+      = f.label :project
+      = f.collection_select :project_id, current_user.projects, :id, :title, {}, class: 'form-control'
+    .form-group
+      = f.label :started_at
+      = f.text_field :started_at, class: 'form-control'
+    .form-group
+      = f.label :finished_at
+      = f.text_field :finished_at, class: 'form-control'
+    = f.submit '保存', class: 'btn btn-primary'

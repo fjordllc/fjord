@@ -1,8 +1,6 @@
 #tracker.tracker
   .container
     .tracker__container
-      .tracker__projects
-        = collection_select :project, :id, current_user.projects, :id, :title, { selected: current_user.current_project&.id, include_blank: t('select_project') }, class: 'tracker__projects-select js-select'
-      .timer.tracker__timer.js-timer(data-start-unixtime="#{project_time}") 00:00:00
-      button.tracker__stop.is-button-normal-xs-secondary.is-icon.js-stop
-        i.fa.fa-stop
+      - if current_user.current_project
+        .tracker__project-title= current_user.current_project.title
+        .timer.tracker__timer.js-timer(data-start-unixtime="#{project_time}") 00:00:00

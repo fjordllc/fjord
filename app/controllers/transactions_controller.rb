@@ -1,37 +1,28 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_my_transaction, only: %i(edit update)
 
-  def create
-    now = Time.current
-    Transaction.transaction do
-      finish_transactions(now)
-
-      Transaction.create!(
-        user:       current_user,
-        project_id: params[:project_id],
-        started_at: now,
-        created_at: now,
-        updated_at: now
-      )
-    end
-
-    redirect_to redirect_url, notice: '仕事を開始しました。'
+  def edit
+    session[:return_to] = params[:return_to] || nil
   end
 
-  def destroy
-    finish_transactions(Time.current)
-    redirect_to redirect_url, notice: '仕事を終了しました。'
+  def update
+    redirect_url = session[:return_to] || root_url
+
+    if @transaction.update(transaction_params)
+      redirect_to redirect_url, notice: 'タイムラインを編集しました。'
+      session[:return_to] = nil
+    else
+      render :edit
+    end
   end
 
   private
-    def finish_transactions(time)
-      current_user.transactions.active.update_all(
-        finished_at: time,
-        updated_at:  time
-      )
+    def set_my_transaction
+      @transaction = current_user.transactions.find(params[:id])
     end
 
-    def redirect_url
-      params[:return_to] || projects_url
+    def transaction_params
+      params.require(:transaction).permit(:started_at, :finished_at, :project_id)
     end
 end
