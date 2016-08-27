@@ -18,6 +18,8 @@
     .col-md-6
       h2= l @day
       i.fa.fa-calendar.js-datepicker
+      .prev_day= link_to "<< #{l(@day.prev_day)}", root_path(day: @day.prev_day.strftime('%Y-%m-%d'))
+      .next_day= link_to "#{l(@day.next_day)} >>", root_path(day: @day.next_day.strftime('%Y-%m-%d'))
 
       .notes
         .format= link_to 'Markdown', report_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'

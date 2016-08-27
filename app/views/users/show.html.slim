@@ -2,5 +2,7 @@
   h2= @user.full_name
   h2= l @day
   i.fa.fa-calendar.js-datepicker
+  .prev_day= link_to "<< #{l(@day.prev_day)}", user_path(@user, day: @day.prev_day.strftime('%Y-%m-%d'))
+  .next_day= link_to "#{l(@day.next_day)} >>", user_path(@user, day: @day.next_day.strftime('%Y-%m-%d'))
 
   = render 'activities/activities', activities: @activities
