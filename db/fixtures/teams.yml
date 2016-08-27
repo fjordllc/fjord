@@ -9,3 +9,7 @@ team_2:
 team_3:
   id: 3
   domain: 'fjord'
+
+team_4:
+  id: 4
+  domain: 'yamada'

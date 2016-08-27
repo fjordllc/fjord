@@ -21,3 +21,9 @@ affiliation_4:
   user_id: 2
   team_id: 3
   ownership: false
+
+affiliation_5:
+  id: 5
+  user_id: 3
+  team_id: 4
+  ownership: true

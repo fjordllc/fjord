@@ -1,0 +1,6 @@
+.container
+  h2= @user.full_name
+  h2= l @day
+  i.fa.fa-calendar.js-datepicker
+
+  = render 'activities/activities', activities: @activities

@@ -1,0 +1,83 @@
+note_1:
+  user_id: 1
+  project_id: 1
+  body: 駒形のテスト１
+  created_at: <%= Time.new(2016, 5, 1, 9, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 9, 0, 0).to_s(:db) %>
+
+note_2:
+  user_id: 1
+  project_id: 2
+  body: 駒形のテスト２
+  created_at: <%= Time.new(2016, 5, 1, 10, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 10, 0, 0).to_s(:db) %>
+
+note_3:
+  user_id: 1
+  project_id: 3
+  body: 駒形のテスト３
+  created_at: <%= Time.new(2016, 5, 1, 11, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 11, 0, 0).to_s(:db) %>
+
+note_4:
+  user_id: 1
+  project_id: 4
+  body: 駒形のテスト４
+  created_at: <%= Time.new(2016, 5, 1, 12, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 12, 0, 0).to_s(:db) %>
+
+note_5:
+  user_id: 1
+  project_id: 5
+  body: 駒形のテスト５
+  created_at: <%= Time.new(2016, 5, 1, 13, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 13, 0, 0).to_s(:db) %>
+
+note_6:
+  user_id: 2
+  project_id: 1
+  body: 町田のテスト１
+  created_at: <%= Time.new(2016, 5, 1, 9, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 9, 0, 0).to_s(:db) %>
+
+note_7:
+  user_id: 2
+  project_id: 2
+  body: 町田のテスト２
+  created_at: <%= Time.new(2016, 5, 1, 10, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 10, 0, 0).to_s(:db) %>
+
+note_8:
+  user_id: 2
+  project_id: 3
+  body: 町田のテスト３
+  created_at: <%= Time.new(2016, 5, 1, 11, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 11, 0, 0).to_s(:db) %>
+
+note_9:
+  user_id: 2
+  project_id: 4
+  body: 町田のテスト４
+  created_at: <%= Time.new(2016, 5, 1, 12, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 12, 0, 0).to_s(:db) %>
+
+note_10:
+  user_id: 2
+  project_id: 5
+  body: 町田のテスト５
+  created_at: <%= Time.new(2016, 5, 1, 13, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 13, 0, 0).to_s(:db) %>
+
+note_11:
+  user_id: 3
+  project_id: 12
+  body: 山田のテスト１
+  created_at: <%= Time.new(2016, 5, 1, 9, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 9, 0, 0).to_s(:db) %>
+
+note_12:
+  user_id: 3
+  project_id: 13
+  body: 山田のテスト２
+  created_at: <%= Time.new(2016, 5, 1, 10, 0, 0).to_s(:db) %>
+  updated_at: <%= Time.new(2016, 5, 1, 10, 0, 0).to_s(:db) %>

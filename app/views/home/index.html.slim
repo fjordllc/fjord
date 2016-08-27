@@ -16,17 +16,12 @@
                 i.fa.fa-play
 
     .col-md-6
-      - if @day == Date.current
-        h2 今日
-      - else
-        h2= @day
+      h2= l @day
+      i.fa.fa-calendar.js-datepicker
 
       .notes
         .format= link_to 'Markdown', report_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'
-        .list-group.notes
-          - @activities.each.with_index do |activity, i|
-            = date_separater(@activities, activity, i)
-            = render 'activities/activity', activity: activity
+        = render 'activities/activities', activities: @activities
         footer.form
           .inner
             = render 'notes/form', note: Note.new, return_to: root_url
@@ -38,7 +33,7 @@
           - if team.users.count > 1
             - team.users.each do |user|
               article.list-group-item.user
-                .name= user.full_name
+                .name= link_to user.full_name, user
                 .project
                   - if user.current_project
                     i.fa.fa-play.status
