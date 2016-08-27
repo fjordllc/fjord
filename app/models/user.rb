@@ -17,6 +17,15 @@ class User < ApplicationRecord
     Project.where(team_id: teams.ids)
   end
 
+  def team_users
+    user_ids = Affiliation.distinct(:user_id).where(team_id: teams.ids).pluck(:user_id)
+    User.where(id: user_ids)
+  end
+
+  def team_user?(user)
+    team_users.where(id: user.id).exists?
+  end
+
   def current_transaction
     transactions.active.order(id: :desc).limit(1).try(:first)
   end

@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   resources :transactions, only: %i(edit update)
   resources :notes, only: %i(index edit create update destroy)
   resources :timelines, only: :index
+  resources :users, only: :show
   root 'home#index'
 end

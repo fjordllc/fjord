@@ -1,0 +1,4 @@
+.list-group.notes
+  - activities.each.with_index do |activity, i|
+    = date_separater(activities, activity, i)
+    = render 'activities/activity', activity: activity
