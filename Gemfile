@@ -22,6 +22,8 @@ gem 'oulu'
 gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 gem 'bootstrap-datepicker-rails'
+gem 'paperclip', '~> 5.0.0'
+gem 'fog'
 
 group :production, :staging, :review do
   gem 'rails_12factor'

@@ -21,6 +21,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         remember_me: ログイン状態を保存する
+        avatar: プロフィール画像
       team:
         domain: ドメイン
       project:
