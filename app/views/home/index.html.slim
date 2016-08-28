@@ -35,7 +35,8 @@
           - if team.users.count > 1
             - team.users.each do |user|
               article.list-group-item.user
-                .name= link_to user.full_name, user
+                span.icon= image_tag user.avatar.url(:thumb), size: '32x32'
+                span.name= link_to user.full_name, user
                 .project
                   - if user.current_project
                     i.fa.fa-play.status

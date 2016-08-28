@@ -29,7 +29,6 @@
   .signin-form__rescue
     = link_to 'アカウント確認メールが届かない場合', new_confirmation_path(resource_name), class: "signin-form__rescue-link"
 
-
   footer.signin-form__footer
     nav.signin-form-other-forms-nav
       ul.signin-form-other-forms-nav__items
@@ -37,4 +36,3 @@
           = link_to 'サインイン', new_session_path(resource_name), class: "signin-form-other-forms-nav__item-link"
         li.signin-form-other-forms-nav__item
           = link_to 'パスワード再設定', new_password_path(resource_name), class: "signin-form-other-forms-nav__item-link"
-    

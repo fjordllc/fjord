@@ -13,6 +13,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  has_attached_file :avatar,
+    styles: { normal: '100x100>', thumb: '64x64>' }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   def projects
     Project.where(team_id: teams.ids)
   end
