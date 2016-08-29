@@ -1,5 +1,5 @@
 article.list-group-item.note
-  span.body= simple_format note.body
+  span.body= markdown note.body
   footer
     span.project= note.project.title
     time= l note.created_at, format: :xshort

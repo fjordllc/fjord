@@ -1,6 +1,6 @@
 - if activity.time
   article.list-group-item.note
-    span.body= simple_format activity.description
+    span.body= markdown activity.description
     footer
       span.icon= activities_icon(activity)
       time= l activity.time, format: :xshort
