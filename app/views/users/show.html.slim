@@ -1,7 +1,7 @@
 .container
   h2
-    .icon= image_tag @user.avatar.url(:thumb), size: '32x32'
-    = @user.full_name
+    span.icon= image_tag @user.avatar.url(:thumb), size: '32x32'
+    span.full_name= @user.full_name
 
   .day_nav
     .prev_day= link_to "<< #{l(@date.prev_day)}", user_with_date_path(id: @user, date: @date.prev_day.strftime('%Y-%m-%d'))

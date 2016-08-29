@@ -1,4 +1,5 @@
 <p><%= @owner.full_name %>さん</p>
 <p><%= @user.full_name %>さんがあなたの日報にコメントしました。</p>
+<%= simple_format @comment.body %>
 <% url = user_with_date_url(id: @owner.id, date: @comment.date.strftime('%Y-%m-%d')) %>
 <p><%= link_to url, url %></p>
