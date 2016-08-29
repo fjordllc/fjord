@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :projects do
     resource :transaction, only: %i(create destroy), controller: 'projects/transactions'
   end
-  resources :transactions, only: %i(edit update)
+  resources :transactions, only: %i(edit update destroy)
   resources :notes, only: %i(index edit create update destroy)
   resources :comments, only: %i(create new edit update destroy)
   resources :timelines, only: :index

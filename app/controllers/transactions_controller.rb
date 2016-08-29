@@ -1,20 +1,24 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_my_transaction, only: %i(edit update)
+  before_action :set_my_transaction, only: %i(edit update destroy)
 
   def edit
-    session[:return_to] = params[:return_to] || nil
   end
 
   def update
-    redirect_url = session[:return_to] || root_url
+    redirect_url = params[:return_to] || root_url
 
     if @transaction.update(transaction_params)
       redirect_to redirect_url, notice: 'タイムラインを編集しました。'
-      session[:return_to] = nil
     else
       render :edit
     end
+  end
+
+  def destroy
+    redirect_url = params[:return_to] || root_url
+    @transaction.destroy
+    redirect_to redirect_url, notice: 'タイムラインを削除しました。'
   end
 
   private
