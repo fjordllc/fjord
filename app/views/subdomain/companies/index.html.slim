@@ -1,0 +1,16 @@
+h2 会社
+
+.new= link_to '新規会社', new_company_path, class: 'btn btn-secondary'
+
+table.table.companies
+  thead
+    tr
+      th.title= Company.human_attribute_name :name
+      th.actions
+  tbody
+    - @companies.each do |company|
+      tr
+        td= link_to company.name, company
+        td.actions
+          = link_to '編集', edit_company_path(company), class: 'edit btn btn-secondary'
+          = link_to '削除', company, data: { confirm: '本当によろしいですか？' }, method: :delete, class: 'delete btn btn-secondary'

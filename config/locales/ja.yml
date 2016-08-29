@@ -26,6 +26,7 @@ ja:
         domain: ドメイン
       project:
         title: タイトル
+        company: 会社
       note:
         body: 本文
         project: プロジェクト
@@ -33,8 +34,13 @@ ja:
         started_at: 開始日時
         finished_at: 完了日時
         project: プロジェクト
+      company:
+        name: 会社名
+        website: ウェブサイトURL
+        description: 詳細
+        team: チーム
   start: 開始
   finish: 終了
-  select_project: プロジェクトを選択
+  please_select: 選択してください
   "start_xxxx": "%{target}を%{verb}。"
   today: 今日

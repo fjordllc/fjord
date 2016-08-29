@@ -49,6 +49,6 @@ class Subdomain::ProjectsController < Subdomain::BaseController
     end
 
     def project_params
-      params.require(:project).permit(:title)
+      params.require(:project).permit(:title, :company_id)
     end
 end

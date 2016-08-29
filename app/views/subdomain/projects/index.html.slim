@@ -6,19 +6,15 @@ table.table.projects
   thead
     tr
       th.title= Project.human_attribute_name :title
+      th.company= Company.human_attribute_name :name
       th.actions
   tbody
     - @projects.each do |project|
-      tr(class="#{project_class(project)}")
+      tr
         td= link_to project.title, project
+        td
+          - if project.company
+            = link_to project.company.name, project.company
         td.actions
-          - if project == current_user.current_project
-            = link_to subdomain_project_transaction_path(subdomain_project_id: project.id), method: :delete do
-              button.btn.btn-secondary.start
-                i.fa.fa-stop
-          - else
-            = link_to subdomain_project_transaction_path(subdomain_project_id: project.id), method: :post do
-              button.btn.btn-secondary.start
-                i.fa.fa-play
           = link_to '編集', edit_project_path(project), class: 'edit btn btn-secondary'
           = link_to '削除', project, data: { confirm: '本当によろしいですか？' }, method: :delete, class: 'delete btn btn-secondary'
