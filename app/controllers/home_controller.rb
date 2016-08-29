@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     if user_signed_in?
-      set_activities(current_user, @day)
+      set_activities(current_user, @date)
       @teams = current_user.teams
 
       stub_time    = Time.new(2000, 1, 1, 0, 0, 0)

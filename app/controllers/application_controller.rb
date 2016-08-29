@@ -67,6 +67,6 @@ class ApplicationController < ActionController::Base
     end
 
     def set_day
-      @day = params[:day] ? Date.parse(params[:day]) : today
+      @date = params[:date] ? Date.parse(params[:date]) : today
     end
 end
