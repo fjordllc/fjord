@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :affiliations
   has_many :transactions
   has_many :notes
+  has_many :comments
   has_many :teams, through: :affiliations
   has_one :my_affiliation, -> { where(ownership: true) }, class_name: 'Affiliation'
   has_one :my_team, through: :my_affiliation, source: :team

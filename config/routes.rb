@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
   resources :transactions, only: %i(edit update)
   resources :notes, only: %i(index edit create update destroy)
+  resources :comments, only: %i(create new edit update destroy)
   resources :timelines, only: :index
   resources :users, only: :show
   get '/users/:id/:date', to: 'users#show', constraints: { date: /\d{4}-\d{2}-\d{2}/ }, as: :user_with_date
