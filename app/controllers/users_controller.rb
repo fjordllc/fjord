@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     set_activities(@user, @date)
+    @comments = Comment.where(owner_id: @user.id, date: @date)
   end
 
   private

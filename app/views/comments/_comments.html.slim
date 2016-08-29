@@ -1,0 +1,12 @@
+.list-group.comments
+  - @comments.each do |comment|
+    .list-group-item
+      .user
+        = link_to comment.user do
+          span.icon= image_tag comment.user.avatar.url(:thumb), size: '32x32'
+          span.full_name= comment.user.full_name
+      .comment_body= simple_format comment.body
+      footer
+        time= l comment.created_at, format: :xshort
+        span.edit= link_to '[編集]', edit_comment_path(comment, return_to: request.url)
+        span.delete= link_to '[削除]', comment_path(comment, return_to: request.url), data: { confirm: '本当によろしいですか？' }, method: :delete
