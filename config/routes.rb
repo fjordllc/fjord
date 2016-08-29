@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get '/', to: 'home#index', as: :our_root
       resources :timelines, only: :index
       resources :activities, only: :index
+      resources :companies
       resources :projects, as: :subdomain_projects do
         resource :transaction, only: %i(create destroy)
       end

@@ -2,4 +2,10 @@
   b= Project.human_attribute_name :title
   br
   = @project.title
+- if @project.company
+  .form-group
+    b= Company.human_attribute_name :name
+    br
+    = link_to @project.company.name, @project.company
+
 = link_to '編集', edit_project_path(@project), class: 'btn btn-success'

@@ -1,6 +1,9 @@
 = form_for project do |f|
   = render 'error', model: project
   .form-group
+    = f.label :company
+    = f.collection_select :company_id, our_team.companies, :id, :name, { include_blank: t('please_select') }, class: 'form-control'
+  .form-group
     = f.label :title
     = f.text_field :title, class: 'form-control'
   = f.submit '保存', class: 'btn btn-primary'

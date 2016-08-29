@@ -1,0 +1,13 @@
+.form-group
+  b= Company.human_attribute_name :name
+  br
+  = @company.name
+.form-group
+  b= Company.human_attribute_name :website
+  br
+  = @company.website
+.form-group
+  b= Company.human_attribute_name :description
+  br
+  = markdown @company.description
+= link_to '編集', edit_company_path(@company), class: 'btn btn-success'

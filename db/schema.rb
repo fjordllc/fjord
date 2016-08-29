@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829040541) do
+ActiveRecord::Schema.define(version: 20160829090136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20160829040541) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.text     "website"
+    t.text     "description"
+    t.integer  "team_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["team_id"], name: "index_companies_on_team_id", using: :btree
+  end
+
   create_table "notes", force: :cascade do |t|
     t.text     "body",       null: false
     t.integer  "user_id"
@@ -49,6 +59,8 @@ ActiveRecord::Schema.define(version: 20160829040541) do
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_projects_on_company_id", using: :btree
     t.index ["team_id"], name: "index_projects_on_team_id", using: :btree
   end
 
@@ -86,7 +98,6 @@ ActiveRecord::Schema.define(version: 20160829040541) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "picture"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -100,8 +111,10 @@ ActiveRecord::Schema.define(version: 20160829040541) do
   add_foreign_key "affiliations", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "users", column: "owner_id"
+  add_foreign_key "companies", "teams"
   add_foreign_key "notes", "projects"
   add_foreign_key "notes", "users"
+  add_foreign_key "projects", "companies"
   add_foreign_key "projects", "teams"
   add_foreign_key "transactions", "projects"
   add_foreign_key "transactions", "users"

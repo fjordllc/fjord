@@ -1,0 +1,12 @@
+= form_for company do |f|
+  = render 'error', model: company
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :website
+    = f.text_field :website, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  = f.submit '保存', class: 'btn btn-primary'

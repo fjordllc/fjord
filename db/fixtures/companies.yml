@@ -1,0 +1,34 @@
+company_1:
+  id: 1
+  name: 合同会社フィヨルド
+  website: "http://fjord.jp"
+  description: "僕ら。"
+  team_id: 3
+
+company_2:
+  id: 2
+  name: GMOアドマーケティング株式会社
+  website: "https://www.gmo-am.jp/"
+  description: "佐藤さん経由。"
+  team_id: 3
+
+company_3:
+  id: 3
+  name: 株式会社ソニックガーデン
+  website: "http://www.sonicgarden.jp/"
+  description: "主に町田さん案件。"
+  team_id: 3
+
+company_4:
+  id: 4
+  name: 永和システムマネジメント
+  website: "http://www.esm.co.jp/"
+  description: "主に町田さん案件。"
+  team_id: 3
+
+company_5:
+  id: 5
+  name: 株式会社ネクスウェイ
+  website: "http://www.nexway.co.jp/"
+  description: "主に町田さん案件。"
+  team_id: 3
