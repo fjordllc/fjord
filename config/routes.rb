@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { registrations: 'registrations' }
+  root 'home#index'
+  get '/:date', to: 'home#index', constraints: { date: /\d{4}-\d{2}-\d{2}/ }, as: :root_with_date
   resource :report, only: :show
   resources :teams, only: %i(index create new)
   resources :projects do
@@ -22,5 +24,5 @@ Rails.application.routes.draw do
   resources :notes, only: %i(index edit create update destroy)
   resources :timelines, only: :index
   resources :users, only: :show
-  root 'home#index'
+  get '/users/:id/:date', to: 'users#show', constraints: { date: /\d{4}-\d{2}-\d{2}/ }, as: :user_with_date
 end

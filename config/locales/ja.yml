@@ -37,3 +37,4 @@ ja:
   finish: 終了
   select_project: プロジェクトを選択
   "start_xxxx": "%{target}を%{verb}。"
+  today: 今日
