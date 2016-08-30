@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'turbolinks:load', ->
   $('.js-project-status-item-show__trigger').click ->
     parent = $(this).parents('.js-project-status-item-show')
     target = $(parent).find('.js-project-status-item-show__target')

@@ -1,12 +1,16 @@
-.list-group.comments
+.activities-comments__items
   - @comments.each do |comment|
-    .list-group-item
-      .user
+    article.activities-comments-item
+      header.activities-comments-item__header
         = link_to comment.user do
           span.icon= image_tag comment.user.avatar.url(:thumb), size: '32x32'
-          span.full_name= comment.user.full_name
-      .comment_body= markdown comment.body
-      footer
-        time= l comment.created_at, format: :xshort
+      .activities-comments-item__name
+        = link_to comment.user do
+          = comment.user.full_name
+      .activities-comments-item__body
+        = markdown comment.body
+      time.activities-comments-item__created-at
+        = l comment.created_at, format: :xshort
+      footer.activities-comments-item__footer
         span.edit= link_to '[編集]', edit_comment_path(comment, return_to: request.url)
         span.delete= link_to '[削除]', comment_path(comment, return_to: request.url), data: { confirm: '本当によろしいですか？' }, method: :delete
