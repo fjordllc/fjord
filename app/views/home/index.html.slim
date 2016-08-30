@@ -1,48 +1,18 @@
 - content_for(:page_classes, "has-no-footer has-page-header-nav")
+- content_for(:markdown_link, report_path(format: 'md'))
 
 .container
   .row
     .col-md-3
-      ul
-        - current_user.projects.each do |project|
-          li
-            - if project == current_user.current_project
-              = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :delete, class: 'is-active' do
-                span.title= project.title
-                i.fa.fa-stop
-            - else
-              = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :post do
-                span.title= project.title
-                i.fa.fa-play
+      = render 'project_status'
 
     .col-md-6
-      .day_nav
-        .prev_day= link_to "<< #{l(@date.prev_day)}", root_with_date_path(date: @date.prev_day.strftime('%Y-%m-%d'))
-        .today
-          span.title= l @date
-          span.today_link= link_to "[#{t('today')}]", root_path
-          i.fa.fa-calendar.js-datepicker
-        .next_day= link_to "#{l(@date.next_day)} >>", root_with_date_path(date: @date.next_day.strftime('%Y-%m-%d'))
-
-      .notes
-        .format= link_to 'Markdown', report_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'
+      .activities
+        = render 'activities_day_nav'
         = render 'activities/activities', activities: @activities
         footer.form
           .inner
             = render 'notes/form', note: Note.new, return_to: root_url
 
     .col-md-3
-      h2 メンバー
-      .list-group.users
-        - @teams.each do |team|
-          - if team.users.count > 1
-            - team.users.each do |user|
-              article.list-group-item.user
-                span.icon= image_tag user.avatar.url(:thumb), size: '32x32'
-                span.name= link_to user.full_name, user
-                .project
-                  - if user.current_project
-                    i.fa.fa-play.status
-                    = link_to user.current_project.title, project_url(user.current_project, subdomain: user.current_project.team.domain)
-                  - else
-                    | Zzzz
+      = render 'member_status'

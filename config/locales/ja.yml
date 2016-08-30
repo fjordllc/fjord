@@ -7,6 +7,7 @@ ja:
       xshort: "%m月%d日 %H時%M分"
       xxshort: "%H:%M"
       timer: "%H:%M:"
+      only_time: "%H:%M"
   activerecord:
     models:
       user: ユーザー
@@ -42,5 +43,5 @@ ja:
   start: 開始
   finish: 終了
   please_select: 選択してください
-  "start_xxxx": "%{target}を%{verb}。"
+  "start_xxxx": " %{target}"
   today: 今日

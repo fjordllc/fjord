@@ -1,0 +1,22 @@
+nav.member-status
+  ul.member-status__tabs
+    li.member-status__tab
+      | プロジェクト
+    li.member-status__tab.is-active
+      | チーム
+  .member-status__items
+    - @teams.each do |team|
+      - if team.users.count > 1
+        - team.users.each do |user|
+          .member-status-item
+            = link_to user, class: "member-status-item__link" do
+              .member-status-item__inner
+                .member-status-item__icon
+                  = image_tag user.avatar.url(:thumb), size: '32x32', class: "member-status-item__icon-image"
+                h3.member-status-item__name(class="#{user.current_project ? 'is-active' : 'is-inactive'}")
+                  = user.full_name
+                .member-status-item__project(class="#{user.current_project ? 'is-active' : 'is-inactive'}")
+                  - if user.current_project
+                    = user.current_project.title
+                  - else
+                    | Zzzz

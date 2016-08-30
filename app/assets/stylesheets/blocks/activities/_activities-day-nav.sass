@@ -1,0 +1,28 @@
+.activities-day-nav
+  display: flex
+  justify-content: space-between
+  border-bottom: solid .0625rem #ddd
+  padding-bottom: .75rem
+.activities-day-nav__day
+  +text-block(.875rem 1.45)
+  &.is-today
+    font-weight: 600
+.activities-day-nav__link
+  +default-link-color
+  +hover-link
+.activities-day-nav__icon
+  display: inline-block
+  &.is-prev
+    margin-right: .375rem
+  &.is-next
+    margin-left: .375rem
+
+.activities-day-links
+  border-bottom: solid .0625rem #ddd
+  +padding(vertical, .25rem)
+  margin-bottom: 1rem
+.activities-day-links__items
+  display: flex
+  align-items: center
+.activities-day-links__item
+  +padding(horizontal, .5rem)

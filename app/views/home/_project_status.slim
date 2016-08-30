@@ -1,0 +1,27 @@
+.project-status
+  .project-status__items
+    - current_user.projects.each do |project|
+      .project-status-item.js-project-status-item-show
+        header.project-status-item__header
+          - if project == current_user.current_project
+            = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :delete, class: 'project-status-item__link is-active' do
+              .project-status-item__inner
+                .project-status-item__button
+                  .is-button-standard-xs-secondary.is-icon.is-active
+                    i.fa.fa-stop
+                h3.project-status-item__title= project.title
+                time.project-status-item__total-time 00:00:00
+          - else
+            = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :post, class: 'project-status-item__link' do
+              .project-status-item__inner
+                .project-status-item__button
+                  .is-button-standard-xs-secondary.is-icon
+                    i.fa.fa-play
+                h3.project-status-item__title= project.title
+                time.project-status-item__total-time 00:00:00
+          .project-status-item__show-details.js-project-status-item-show__trigger
+            .project-status-item__show-details-button
+              i.fa.fa-angle-down
+        .project-status-item__body.js-project-status-item-show__target
+          .project-status-item__body-inner
+            | それは黄金の昼下がり気ままにただようぼくらオールは二本ともあぶなげに小さな腕で漕がれ小さな手がぼくらのただよいを導こうとかっこうだけ申し訳につけてああ残酷な三人！こんな時間にこんな夢見る天気のもとで

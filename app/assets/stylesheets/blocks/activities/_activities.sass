@@ -1,0 +1,14 @@
+.activities__project-separater
+  background-color: #ddd
+  padding: .5rem .75rem
+  +text-block(.75rem 1.45, block)
+  border-radius: .25rem
+  +position(relative)
+  margin-bottom: .75rem
+  &::before
+    content: ''
+    +size(.875rem .75rem)
+    border-right: .125rem solid #ddd
+    +position(absolute, left 0, bottom -.75rem)
+.activities__date-separater
+  +text-block(.8125rem 1.45, 600)

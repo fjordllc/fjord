@@ -1,0 +1,45 @@
+.project-status__items
+  margin-top: -.25rem
+.project-status-item
+  &:not(:last-child)
+    border-bottom: 1px solid #ddd
+  &:first-child
+    +border-radius(top, .25rem)
+  &:last-child
+    +border-radius(bottom, .25rem)
+.project-status-item__header
+  +position(relative)
+  padding-right: 3rem
+.project-status-item__link
+  +block-link
+  padding: .5rem
+.project-status-item__inner
+  +position(relative)
+  padding-left: 2.5rem
+  min-height: 1.75rem
+.project-status-item__button
+  +position(absolute, left 0, top 0)
+.project-status-item__title
+  +text-block(.8125rem 1.4, 600 $default-text)
+.project-status-item__show-details
+  +position(absolute, right 0, top 0)
+  padding: .5rem
+.project-status-item__show-details-button
+  +size(1.25rem)
+  background-color: #ddd
+  border-radius: .1875rem
+  +text-block(.8125rem 1.25rem, center)
+  .project-status-item__show-details:hover &
+    background-color: $primary
+.project-status-item__total-time
+  +text-block(.75rem 1.45, block $muted-text)
+.project-status-item__body
+  max-height: 0
+  overflow: hidden
+  transition: max-height .2s ease-in
+  &.is-active
+    max-height: 8.75rem
+.project-status-item__body-inner
+  +padding(horizontal, .5rem)
+  padding-bottom: .75rem
+  +text-block(.75rem 1.45)

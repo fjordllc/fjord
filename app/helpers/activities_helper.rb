@@ -3,8 +3,6 @@ module ActivitiesHelper
     case activity.source_model
     when Note
       '<i class="fa fa-sticky-note-o"></i>'.html_safe
-    when Transaction
-      '<i class="fa fa-clock-o"></i>'.html_safe
     end
   end
 

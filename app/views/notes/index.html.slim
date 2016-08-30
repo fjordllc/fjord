@@ -1,11 +1,11 @@
 - content_for(:page_classes, "has-no-footer has-page-header-nav")
+- content_for(:markdown_link, notes_path(format: 'md'))
 
 .container
   .notes
-    .format= link_to 'Markdown', notes_path(format: 'md'), target: '_blank', class: 'is-button-normal-xs-secondary'
     .list-group.notes
       - @notes.each.with_index do |note, i|
-        = date_separater(@notes, note, i)
+        = date_separater(@notes, note, i, 'notes')
         = render 'notes/note', note: note
     footer.form
       .inner

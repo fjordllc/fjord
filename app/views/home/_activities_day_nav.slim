@@ -1,0 +1,20 @@
+nav.activities-day-nav
+  .activities-day-nav__day.is-prev
+    = link_to root_with_date_path(date: @date.prev_day.strftime('%Y-%m-%d')), class: "activities-day-nav__link is-prev" do
+      .activities-day-nav__icon.is-prev
+        i.fa.fa-angle-left
+      = l(@date.prev_day)
+  .activities-day-nav__day.is-today
+    = l @date
+  .activities-day-nav__day.is-next
+    = link_to root_with_date_path(date: @date.next_day.strftime('%Y-%m-%d')), class: "activities-day-nav__link is-next" do
+      = l(@date.next_day)
+      .activities-day-nav__icon.is-next
+        i.fa.fa-angle-right
+
+nav.activities-day-links
+  ul.activities-day-links__items
+    li.activities-day-links__item
+      = link_to t('today'), root_path, class: "activities-day-links__today-link"
+    li.activities-day-links__item
+      i.fa.fa-calendar.js-datepicker
