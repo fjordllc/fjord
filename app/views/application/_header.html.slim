@@ -8,18 +8,19 @@ header.header
           ul.header-global-nav__items
             li.header-global-nav__item.dropdown
               a.dropdown-toggle.header-global-nav__item-link(aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button")
-                span.icon
                 span.login-name チーム
-                span.caret
               ul.dropdown-menu
                 - current_user.teams.each do |team|
-                  li.header-temas-nav__item= link_to team.domain, our_root_url(subdomain: team.domain)
+                  li.header-temas-nav__item
+                    = link_to team.domain, our_root_url(subdomain: team.domain), class: "dropdown-item"
             li.header-global-nav__item.dropdown
               a.dropdown-toggle.header-global-nav__item-link(aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button")
                 = render 'user', user: current_user
               ul.dropdown-menu
-                li= link_to 'アカウント編集', edit_user_registration_url(subdomain: false)
-                li= link_to 'サインアウト', destroy_user_session_url(subdomain: false)
+                li
+                  = link_to 'アカウント編集', edit_user_registration_url(subdomain: false), class: "dropdown-item"
+                li
+                  = link_to 'サインアウト', destroy_user_session_url(subdomain: false), class: "dropdown-item"
       - else
         nav.header-auth-nav
           ul.header-auth-nav__items
