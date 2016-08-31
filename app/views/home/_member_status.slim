@@ -9,14 +9,16 @@ nav.member-status
       - if team.users.count > 1
         - team.users.each do |user|
           .member-status-item
-            = link_to user, class: "member-status-item__link" do
+            .member-status-item__link
               .member-status-item__inner
-                .member-status-item__icon
-                  = image_tag user.avatar.url(:thumb), size: '32x32', class: "member-status-item__icon-image"
-                h3.member-status-item__name(class="#{user.current_project ? 'is-active' : 'is-inactive'}")
-                  = user.full_name
+                = link_to user do
+                  .member-status-item__icon
+                    = image_tag user.avatar.url(:thumb), size: '32x32', class: "member-status-item__icon-image"
+                = link_to user do
+                  h3.member-status-item__name(class="#{user.current_project ? 'is-active' : 'is-inactive'}")
+                    = user.full_name
                 .member-status-item__project(class="#{user.current_project ? 'is-active' : 'is-inactive'}")
                   - if user.current_project
-                    = user.current_project.title
+                    = link_to user.current_project.title, project_url(user.current_project, subdomain: team.domain)
                   - else
                     | Zzzz
