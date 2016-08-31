@@ -1,3 +1,5 @@
-span.icon= image_tag current_user.avatar.url(:thumb), size: '32x32'
-span.login-name= user.full_name
-span.caret
+.header-current-user
+  .header-current-user__icon
+    = image_tag current_user.avatar.url(:thumb), size: '56x56', class: "header-current-user__icon-image"
+  .header-current-user__name
+    = user.full_name

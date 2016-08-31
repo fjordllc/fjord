@@ -1,0 +1,40 @@
+.activities-item
+  +position(relative)
+  padding-left: .75rem
+.activities-item__inner
+  border-left: .125rem solid #ddd
+  padding-bottom: .75rem
+  padding-left: 1.5rem
+  &.is-finish
+    padding-left: 1.625rem
+    border-left: none
+    +position(relative, left 0, top 0)
+    &::before
+      content: ''
+      +size(.875rem .75rem)
+      border-left: .125rem solid #ddd
+      border-bottom: .125rem solid #ddd
+      +position(absolute, left 0, top 0)
+.activities-item__body
+  p
+    +text-block(.8125rem 1.6 1.2em)
+  *:last-child
+    margin-bottom: 0
+.activities-item__icon
+  +position(absolute, left 0, top .0)
+  +size(1.5rem)
+  background-color: #ddd
+  +text-block(1rem 1.5rem, center)
+  border-radius: 50%
+.activities-item__time
+  +text-block(.8125rem 1.45 .125rem, 600 block)
+  &.is-finish
+    display: inline-block
+.activities-item__time-label
+  +text-block(.75rem 1.54, inline-block 600)
+  margin-left: .5rem
+.activities-item__footer
+  display: none
+  +position(absolute, right 0, top 0)
+  .activities-item:hover &
+    display: block

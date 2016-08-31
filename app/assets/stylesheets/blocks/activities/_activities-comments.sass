@@ -1,0 +1,22 @@
+.activities-comments
+  margin-top: 1rem
+.activities-comments__title
+  +text-block(.875rem 1.45 .5rem)
+.activities-comments__items
+  margin-bottom: 2rem
+
+.activities-comments-item
+  +position(relative)
+  padding-left: 3rem
+.activities-comments-item__header
+  +position(absolute, left 0, top 0)
+.activities-comments-item__name
+  +text-block(.875rem 1.45 .25rem, 600)
+  +default-link-color
+  +hover-link
+.activities-comments-item__body
+  margin-bottom: .25rem
+  p
+    +text-block(.8125rem 1.6 1.2em)
+  *:last-child
+    margin-bottom: 0

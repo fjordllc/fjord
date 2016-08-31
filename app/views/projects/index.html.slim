@@ -20,9 +20,9 @@
             td.actions
               - if project == current_user.current_project
                 = link_to project_transaction_url(project_id: project.id), method: :delete do
-                  button.start.is-button-normal-xs-secondary.is-icon
+                  button.start.is-button-standard-xs-secondary.is-icon
                     i.fa.fa-stop
               - else
                 = link_to project_transaction_url(project_id: project.id), method: :post do
-                  button.start.is-button-normal-xs-secondary.is-icon
+                  button.start.is-button-standard-xs-secondary.is-icon
                     i.fa.fa-play

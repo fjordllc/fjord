@@ -1,17 +1,15 @@
 .container
-  h2
-    span.icon= image_tag @user.avatar.url(:thumb), size: '32x32'
-    span.full_name= @user.full_name
-
-  .day_nav
-    .prev_day= link_to "<< #{l(@date.prev_day)}", user_with_date_path(id: @user, date: @date.prev_day.strftime('%Y-%m-%d'))
-    .today
-      span.title= l @date
-      span.today_link= link_to "[#{t('today')}]", user_path(@user)
-      i.fa.fa-calendar.js-datepicker
-    .next_day= link_to "#{l(@date.next_day)} >>", user_with_date_path(id: @user, date: @date.next_day.strftime('%Y-%m-%d'))
-
-  = render 'activities/activities', activities: @activities
-  h2 コメント
-  = render 'comments/comments', comments: @comments
-  = render 'comments/form', comment: Comment.new(owner_id: @user.id, date: @date), return_to: request.url
+  .row
+    .col-md-3
+      h2
+        span.icon= image_tag @user.avatar.url(:thumb), size: '32x32'
+        span.full_name= @user.full_name
+    .col-md-6
+      .activities
+        = render 'activities_day_nav'
+        = render 'activities/activities', activities: @activities
+        .activities-comments
+          h2.activities-comments__title
+            | コメント
+          = render 'comments/comments', comments: @comments
+          = render 'comments/form', comment: Comment.new(owner_id: @user.id, date: @date), return_to: request.url

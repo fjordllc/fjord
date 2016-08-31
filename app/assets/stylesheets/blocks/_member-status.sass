@@ -1,0 +1,37 @@
+.member-status__tabs
+  border-bottom: solid 1px #ddd
+
+.member-status__tab
+  display: inline-block
+  border: solid 1px #ddd
+  +bottom(-1px)
+  padding: .5rem .75rem
+  +text-block(.75rem 1.45, center)
+  margin-right: .25rem
+  &.is-active
+    border-bottom-color: $base-color
+  &:last-child
+    margin-right: 0
+
+.member-status-item
+  border-bottom: #ddd solid 1px
+.member-status-item__link
+  padding: .75rem .5rem
+  +block-link
+  min-height: 3.5rem
+.member-status-item__inner
+  +position(relative)
+  padding-left: 2.75rem
+.member-status-item__icon
+  +position(absolute, left 0, top 0)
+.member-status-item__icon-image
+  display: block
+  border-radius: 50%
+.member-status-item__name
+  +text-block(.8125rem 1.4, $default-text)
+  &.is-inactive
+    color: $muted-text
+.member-status-item__project
+  +text-block(.75rem 1.4, $default-text)
+  &.is-inactive
+    color: $muted-text
