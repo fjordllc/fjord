@@ -11,19 +11,26 @@ html lang="ja"
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
   body(class="#{body_class} #{yield(:page_classes)}")
-    - unless yield(:page_classes).include?('has-no-header')
-      = render 'header'
-    = render 'alert'
-    .body
-      - if user_signed_in?
-        .page-header
-          = render 'tracker'
-          - if yield(:page_classes).include?('has-page-header-nav')
-            = render 'page_header_nav'
-        .page-body
-          = yield
-      - else
-        = yield
-    - unless yield(:page_classes).include?('has-no-footer')
-      footer.footer#footer
-        | fjord, llc
+    - if yield(:page_classes).include?('has-project-status')
+      .container.is-padding-horizontal-0
+        .row.is-gutter-width-0
+          .col-md-3.col-xl-2
+            = render 'project_status'
+          .col-md-8.col-xl-10
+            = render 'header'
+            main.page-body.js-main
+              = render 'alert'
+              = yield
+    - else
+      - unless yield(:page_classes).include?('has-no-header')
+        = render 'header'
+      main.page-body.js-main
+        = render 'alert'
+        - if user_signed_in?
+            = yield
+        - else
+          main.page-body
+            = yield
+      - unless yield(:page_classes).include?('has-no-footer')
+        footer.footer.js-footer#footer
+          | fjord, llc

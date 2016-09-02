@@ -1,6 +1,5 @@
 #tracker.tracker
-  .container
-    .tracker__container
-      - if current_user.current_project
-        .tracker__project-title= current_user.current_project.title
-        .timer.tracker__timer.js-timer(data-start-unixtime="#{project_time}") 00:00:00
+  .tracker__container
+    - if current_user.current_project
+      .tracker__project-title= current_user.current_project.title
+      .timer.tracker__timer.js-timer(data-start-unixtime="#{project_time}") 00:00:00

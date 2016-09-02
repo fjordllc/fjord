@@ -1,12 +1,18 @@
 .activities-day-nav
-  display: flex
-  justify-content: space-between
   border-bottom: solid .0625rem #ddd
-  padding-bottom: .75rem
+  +padding(vertical, .75rem)
+  +padding(horizontal, .75rem)
 .activities-day-nav__day
+  display: inline-block
   +text-block(.875rem 1.45)
+  width: 33.33%
+  &.is-prev
+    text-align: left
   &.is-today
     font-weight: 600
+    text-align: center
+  &.is-next
+    text-align: right
 .activities-day-nav__link
   +default-link-color
   +hover-link
@@ -20,9 +26,9 @@
 .activities-day-links
   border-bottom: solid .0625rem #ddd
   +padding(vertical, .25rem)
-  margin-bottom: 1rem
+  +padding(horizontal, 1rem)
 .activities-day-links__items
   display: flex
   align-items: center
 .activities-day-links__item
-  +padding(horizontal, .5rem)
+  padding-right: 1rem

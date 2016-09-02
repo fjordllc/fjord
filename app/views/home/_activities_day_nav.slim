@@ -18,3 +18,4 @@ nav.activities-day-links
       = link_to t('today'), root_path, class: "activities-day-links__today-link"
     li.activities-day-links__item.js-datepicker
       i.fa.fa-calendar
+    .format= link_to 'Markdown', yield(:markdown_link), target: '_blank', class: 'is-button-standard-xs-secondary'
