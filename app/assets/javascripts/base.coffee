@@ -17,3 +17,6 @@ $ ->
     if startUnixtime
       $('.js-timer')[0].innerText = timer(startUnixtime)
   ,   1000
+
+$ ->
+  autosize($('textarea'))

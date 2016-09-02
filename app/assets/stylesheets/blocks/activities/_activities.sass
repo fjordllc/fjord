@@ -1,7 +1,10 @@
+.activities
+  +position(relative)
+  border-right: .0625rem solid #ddd
 .activities__project-separater
   background-color: #ddd
-  padding: .5rem .75rem
-  +text-block(.75rem 1.45, block)
+  padding: .375rem .75rem
+  +text-block(.75rem 1.4, block)
   border-radius: .25rem
   +position(relative)
   margin-bottom: .75rem
@@ -12,3 +15,14 @@
     +position(absolute, left 0, bottom -.75rem)
 .activities__date-separater
   +text-block(.8125rem 1.45, 600)
+
+.activities__body
+  +overflow(hidden auto)
+  padding: 1rem
+
+.activities__footer
+  +position(absolute, left 0, bottom 0, right 0)
+  background-color: #f4f4f4
+  border-top: solid 1px #ddd
+  +size(100% auto)
+  padding: 1rem

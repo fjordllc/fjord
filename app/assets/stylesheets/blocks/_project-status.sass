@@ -1,12 +1,10 @@
-.project-status__items
-  margin-top: -.25rem
+.project-status
+  +overflow(hidden auto)
+  background-color: #5a5a5a
 .project-status-item
-  &:not(:last-child)
-    border-bottom: 1px solid #ddd
-  &:first-child
-    +border-radius(top, .25rem)
-  &:last-child
-    +border-radius(bottom, .25rem)
+  border-bottom: 1px solid #3a3a3a
+  &.is-active
+    background-color: $base-color
 .project-status-item__header
   +position(relative)
   padding-right: 3rem
@@ -20,7 +18,9 @@
 .project-status-item__button
   +position(absolute, left 0, top 0)
 .project-status-item__title
-  +text-block(.8125rem 1.4, 600 $default-text)
+  +text-block(.8125rem 1.4, 600 #bababa)
+  &.is-active
+    color: $default-text
 .project-status-item__show-details
   +position(absolute, right 0, top 0)
   padding: .5rem

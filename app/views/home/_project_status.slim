@@ -1,7 +1,8 @@
-.project-status
+.project-status.js-window-height
+  = render 'tracker'
   .project-status__items
     - current_user.projects.each do |project|
-      .project-status-item.js-project-status-item-show
+      .project-status-item.js-project-status-item-show(class="#{project == current_user.current_project ? 'is-active' : ''}")
         header.project-status-item__header
           - if project == current_user.current_project
             = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :delete, class: 'project-status-item__link is-active' do
@@ -9,7 +10,8 @@
                 .project-status-item__button
                   .is-button-standard-xs-secondary.is-icon.is-active
                     i.fa.fa-stop
-                h3.project-status-item__title= project.title
+                h3.project-status-item__title.is-active
+                  = project.title
                 time.project-status-item__total-time 00:00:00
           - else
             = link_to project_transaction_url(project_id: project.id, return_to: root_url), method: :post, class: 'project-status-item__link' do

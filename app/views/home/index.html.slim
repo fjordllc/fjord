@@ -1,18 +1,17 @@
-- content_for(:page_classes, "has-no-footer has-page-header-nav")
+- content_for(:page_classes, "has-no-footer has-project-status")
 - content_for(:markdown_link, report_path(format: 'md'))
 
-.container
-  .row
-    .col-md-3
-      = render 'project_status'
-
-    .col-md-6
-      .activities
-        = render 'activities_day_nav'
-        = render 'activities/activities', activities: @activities
-        footer.form
+.container.is-padding-horizontal-0
+  .row.is-gutter-width-0
+    .col-md-6.col-xl-9
+      .activities.js-body
+        header.activities__header.js-activities-header
+          = render 'activities_day_nav'
+        .activities__body.js-activities-body
+          = render 'activities/activities', activities: @activities
+        footer.activities__footer.js-activities-footer
           .inner
             = render 'notes/form', note: Note.new, return_to: root_url
 
-    .col-md-3
+    .col-md-3.col-xl-3
       = render 'member_status'

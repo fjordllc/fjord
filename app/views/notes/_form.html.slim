@@ -1,10 +1,5 @@
 = form_for note do |f|
   = render 'error', model: note
-  .container
-    .row
-      .col-md-11.col-xs-8
-        .form-group
-          = f.text_area :body, class: 'form-control'
-      .col-md-1.col-xs-4
-        = f.submit '保存', class: 'btn btn-primary'
-        = hidden_field_tag :return_to, params[:return_to]
+  = f.text_area :body, class: 'form-control js-autosize'
+  = f.submit '保存', class: 'btn btn-primary'
+  = hidden_field_tag :return_to, params[:return_to]

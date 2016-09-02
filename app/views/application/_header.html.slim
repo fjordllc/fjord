@@ -1,4 +1,4 @@
-header.header
+header.header.js-header(class="#{yield(:page_classes)}")
   .container
     .header__container
       = link_to root_path, class: 'header__logo-link' do
@@ -6,6 +6,8 @@ header.header
       - if user_signed_in?
         nav.header-global-nav
           ul.header-global-nav__items
+            li.header-global-nav__item
+              = link_to 'レポート', report_path, class: "header-global-nav__item-link"
             li.header-global-nav__item.dropdown
               a.dropdown-toggle.header-global-nav__item-link(aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button")
                 span.login-name チーム

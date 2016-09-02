@@ -1,15 +1,1 @@
 nav.page-header-nav
-  .container.is-padding-horizontal-0-sm-down
-    .page-header-nav__container
-      ul.page-header-nav__items
-        li.page-header-nav__item
-          = link_to 'ダッシュボード', root_path, class: "page-header-nav__item-link #{body_class.include?('home-index') ? 'is-active' : ''}"
-        li.page-header-nav__item
-          = link_to 'タイムライン', timelines_path, class: "page-header-nav__item-link #{body_class.include?('timelines-index') ? 'is-active' : ''}"
-        li.page-header-nav__item
-          = link_to 'ノート', notes_path, class: "page-header-nav__item-link #{body_class.include?('notes-index') ? 'is-active' : ''}"
-        li.page-header-nav__item
-          = link_to 'レポート', report_path, class: "page-header-nav__item-link #{body_class.include?('reports-show') ? 'is-active' : ''}"
-
-      - unless yield(:markdown_link) == ''
-        .format= link_to 'Markdown', yield(:markdown_link), target: '_blank', class: 'is-button-standard-xs-secondary'
