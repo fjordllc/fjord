@@ -2,16 +2,29 @@
   - case activity.source_model
     - when Transaction
       - if activity.status.to_s == 'start'
-        h3.activities__project-separater(class="is-#{activity.project.id}")
-          = l activity.time, format: :only_time
-          = activity.description
+        .activities-project-separater(class="is-#{activity.project.id}")
+          h3.activities-project-separater__title
+            span.activities-project-separater__time
+              = l activity.time, format: :only_time
+            span.activities-project-separater__description
+              = activity.description
+          ul.activities-project-separater__action-items
+            li.activities-project-separater__action-item
+              = link_to '編集', activities_edit_url(activity), class: "activities-project-separater__action-item-link"
+            li.activities-project-separater__action-item
+              = link_to '削除', activities_delete_url(activity), method: :delete, class: "activities-project-separater__action-item-link"
       - else
-        article.activities-item.is-finish(class="is-#{activity.project.id}")
+        article.activities-item.activities-finish.is-finish(class="is-#{activity.project.id}")
           .activities-item__inner.is-finish
-            time.activities-item__time.is-finish
+            time.activities-item__time
               = l activity.time, format: :only_time
             .activities-item__time-label
               | 終了
+            ul.activities-item__action-items
+              li.activities-item__action-item
+                = link_to '編集', activities_edit_url(activity), class: "activities-item__action-item-link"
+              li.activities-item__action-item
+                = link_to '削除', activities_delete_url(activity), method: :delete, class: "activities-item__action-item-link"
 
     - when Note
       article.activities-item.is-note(class="is-#{activity.project.id}")
@@ -21,11 +34,10 @@
               = activities_icon(activity)
             time.activities-item__time
               = l activity.time, format: :only_time
+            ul.activities-item__action-items
+              li.activities-item__action-item
+                = link_to '編集', activities_edit_url(activity), class: "activities-item__action-item-link"
+              li.activities-item__action-item
+                = link_to '削除', activities_delete_url(activity), method: :delete, class: "activities-item__action-item-link"
           .activities-item__body
             = markdown activity.description
-          footer.activities-item__footer
-            ul.activities-item__actions.is-button-group
-              li.activities-item__action
-                = link_to '編集', activities_edit_url(activity), class: "is-button-standard-xs-secondary"
-              li.activities-item__action
-                = link_to '削除', activities_delete_url(activity), method: :delete, class: "is-button-standard-xs-secondary"

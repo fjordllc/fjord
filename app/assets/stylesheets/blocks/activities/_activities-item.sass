@@ -9,13 +9,19 @@
     padding-left: 1.625rem
     border-left: none
     +position(relative, left 0, top 0)
+    display: flex
+    align-items: center
     &::before
       content: ''
       +size(.875rem .75rem)
       border-left: .125rem solid #ddd
       border-bottom: .125rem solid #ddd
       +position(absolute, left 0, top 0)
+.activities-item__header
+  display: flex
+  align-items: center
 .activities-item__body
+  margin-top: .125rem
   p
     +text-block(.875rem 1.6 1.2em)
     +media-breakpoint-down(lg)
@@ -44,14 +50,22 @@
   +text-block(1rem 1.5rem, center)
   border-radius: 50%
 .activities-item__time
-  +text-block(.8125rem 1.45 .125rem, 600 block)
-  &.is-finish
-    display: inline-block
+  +text-block(.8125rem 1.45, 600 inline-block)
 .activities-item__time-label
   +text-block(.75rem 1.54, inline-block 600)
   margin-left: .5rem
-.activities-item__footer
-  display: none
-  +position(absolute, right 0, top 0)
+
+
+.activities-item__action-items
+  margin-left: .75rem
+  opacity: 0
+  transition: opacity .2s ease-in
   .activities-item:hover &
-    display: block
+    opacity: 1
+.activities-item__action-item
+  display: inline-block
+  margin-left: .5rem
+  &:first-child
+    margin-left: 0
+.activities-item__action-item-link
+  +text-block(.75rem 1.5rem, $main-color)
