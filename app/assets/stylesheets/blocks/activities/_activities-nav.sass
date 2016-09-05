@@ -1,0 +1,55 @@
+$activities-nav-height: 2.25rem
+
+.activities-nav
+  border-bottom: solid .0625rem #ddd
+  +position(relative)
+  height: $activities-nav-height
+.activities-day-links
+  +position(absolute, left 0, top 0)
+  height: $activities-nav-height
+.activities-format
+  +position(absolute, right 0, top 0)
+  height: $activities-nav-height
+  display: flex
+  align-items: center
+  +padding(horizontal, 1rem)
+
+.activities-day-nav
+  +size(20rem $activities-nav-height)
+  width: 20rem
+  +margin(horizontal, auto)
+  display: flex
+  align-items: center
+  justify-content: space-between
+.activities-day-nav__day
+  display: inline-block
+  width: 33.33%
+  &.is-prev
+    text-align: left
+    font-size: .8125rem
+  &.is-today
+    font-weight: 600
+    text-align: center
+    font-size: .9375rem
+  &.is-next
+    text-align: right
+    font-size: .8125rem
+.activities-day-nav__link
+  +default-link-color
+  +hover-link
+.activities-day-nav__icon
+  display: inline-block
+  &.is-prev
+    margin-right: .375rem
+  &.is-next
+    margin-left: .375rem
+
+.activities-day-links
+  +padding(horizontal, 1rem)
+.activities-day-links__items
+  display: flex
+  align-items: center
+  height: $activities-nav-height
+  align-items: center
+.activities-day-links__item
+  padding-right: 1rem

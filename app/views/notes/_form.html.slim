@@ -1,5 +1,8 @@
-= form_for note do |f|
-  = render 'error', model: note
-  = f.text_area :body, class: 'form-control js-autosize'
-  = f.submit '保存', class: 'btn btn-primary'
-  = hidden_field_tag :return_to, params[:return_to]
+.activities-form
+  = form_for note, class: "activities-form__form" do |f|
+    = render 'error', model: note
+    .activities-form__textarea-container
+      = f.text_area :body, class: 'activities-form__textarea js-autosize'
+      .activities-form__actions
+        = f.submit '投稿', class: 'activities-form__submit'
+    = hidden_field_tag :return_to, params[:return_to]

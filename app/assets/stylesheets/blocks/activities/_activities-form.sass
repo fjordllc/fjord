@@ -1,0 +1,27 @@
+.activities-form__textarea-container
+  border: solid 2px #ddd
+  width: 100%
+  border-radius: 4px
+  +position(relative)
+  padding-right: 4rem
+  overflow: hidden
+.activities-form__textarea
+  width: 100%
+  min-height: 4rem
+  background-color: #f8f8f8
+  padding: .5rem
+  +text-block(.875rem 1.6)
+  border-right: solid 2px #ddd
+  float: left
+  &:focus
+    background-color: #ffffff
+.activities-form__actions
+  +position(absolute, right 0, bottom 0)
+  width: 4rem
+.activities-form__submit
+  background-color: #c6f0ff
+  +text-block(.875rem 2.75rem, center 600 block #1c7393)
+  width: 100%
+  border-top: solid 2px #ddd
+  &:hover
+    background-color: #66c7e9

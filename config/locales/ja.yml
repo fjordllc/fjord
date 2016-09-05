@@ -2,6 +2,7 @@ ja:
   date:
     formats:
       xshort: "%m月%d日"
+      xxshort: "%m/%d"
   time:
     formats:
       xshort: "%m月%d日 %H時%M分"
