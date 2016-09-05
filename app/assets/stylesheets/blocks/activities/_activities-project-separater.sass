@@ -1,0 +1,32 @@
+.activities-project-separater
+  background-color: #ddd
+  +padding(horizontal, .75rem)
+  +text-block(.75rem 1.4, flex)
+  border-radius: .25rem
+  +position(relative)
+  margin-bottom: .75rem
+  height: 1.75rem
+  align-items: center
+  &::before
+    content: ''
+    +size(.875rem .75rem)
+    border-right: .125rem solid #ddd
+    +position(absolute, left 0, bottom -.75rem)
+.activities-project-separater__time
+  display: inline-block
+  margin-right: .75rem
+.activities-project-separater__description
+  display: inline-block
+  margin-right: .75rem
+.activities-project-separater__action-items
+  opacity: 0
+  transition: opacity .2s ease-in
+  .activities-project-separater:hover &
+    opacity: 1
+.activities-project-separater__action-item
+  display: inline-block
+  margin-left: .5rem
+  &:first-child
+    margin-left: 0
+.activities-project-separater__action-item-link
+  +text-block(.75rem 1.5rem, $main-color)

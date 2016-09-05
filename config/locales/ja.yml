@@ -43,5 +43,5 @@ ja:
   start: 開始
   finish: 終了
   please_select: 選択してください
-  "start_xxxx": " %{target}"
+  "start_xxxx": "%{target}"
   today: 今日
