@@ -12,12 +12,8 @@ class Reports::MonthsController < ApplicationController
       @transactions[index] ||= []
       @transactions[index] << tran
     end
-  end
 
-  def show
-    @timelines = timelines(current_user, today)
-    @notes     = notes(current_user, today)
-
+    # for markdown
     stub_time = Time.new(2000, 1, 1, 0, 0, 0)
     @start_time = @timelines&.first&.time || stub_time
     @finish_time = @timelines&.last&.time || stub_time

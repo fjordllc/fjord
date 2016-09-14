@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root "home#index"
   get "/:date", to: "home#index", constraints: { date: /\d{4}-\d{2}-\d{2}/ }, as: :root_with_date
+  resources :reports, only: :index
   namespace :reports do
     resources :months, only: :index
     resources :dailies, only: :index
