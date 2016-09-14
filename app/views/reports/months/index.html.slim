@@ -1,0 +1,28 @@
+nav.report-month-nav
+  .report-month-nav__month.is-prev
+    = link_to reports_months_path(month: @target_date.prev_month.strftime("%Y-%m")) do
+      i.fa.fa-angle-left
+      = t("date.abbr_month_names")[@target_date.prev_month.month]
+  .report-month-nav__month.is-current-month
+    = t("date.abbr_month_names")[@target_date.month]
+  .report-month-nav__month.is-next
+    = link_to reports_months_path(month: @target_date.next_month.strftime("%Y-%m")) do
+      = t("date.abbr_month_names")[@target_date.next_month.month]
+      i.fa.fa-angle-right
+
+table.calendar
+  tr
+    - 7.times do |j|
+      th= (t("date.abbr_day_names") * 2)[j + 1]
+  - 5.times do |i|
+    tr.week
+      - 7.times.each do |j|
+        td.day
+          - day = @first_date + (i * 7 + j)
+          .label= link_to day.day, reports_dailies_path(day: day.strftime("%Y-%m-%d"))
+          - trans = @transactions[day.strftime("%m%d")] || []
+          - trans.each do |tran|
+            .transaction
+              - start  = tran.started_at.strftime("%H:%m")
+              span= "#{start}:"
+              span.title= link_to tran.project.title, project_url(tran.project, subdomain: tran.project.team.domain)

@@ -10,9 +10,9 @@ class HomeController < ApplicationController
       @start_time  = @timelines&.first&.time || stub_time
       @finish_time = @timelines&.last&.time || stub_time
 
-      render 'index'
+      render "index"
     else
-      render 'guest'
+      render "guest"
     end
   end
 end

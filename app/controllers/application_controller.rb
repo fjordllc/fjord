@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
       relation = user.notes.order(:id)
       if date
-        relation = relation.where(created_at: date...date.next_day)
+        relation = relation.where(created_at: date.to_time...date.next_day.to_time)
       end
       @_notes = relation.map(&:to_activity)
     end
@@ -31,19 +31,19 @@ class ApplicationController < ActionController::Base
 
       relation = user.transactions.order(:id)
       if date
-        relation = relation.where(started_at: date...date.next_day)
+        relation = relation.where(started_at: date.to_time...date.next_day.to_time)
       end
       @_timelines = relation.inject([]) do |result, transaction|
         result + [transaction.to_activity(:start), transaction.to_activity(:finish)]
       end
-      @_timelines.sort {|a, b| a.sort_key <=> b.sort_key }
+      @_timelines.sort { |a, b| a.sort_key <=> b.sort_key }
     end
 
     def activities(user, date = nil)
       return @_activities if @_activities
 
       activities = notes(user, date) + timelines(user, date)
-      @_activities = activities.sort {|a, b| a.sort_key <=> b.sort_key }
+      @_activities = activities.sort { |a, b| a.sort_key <=> b.sort_key }
     end
 
     def set_activities(user, date)
@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate_team_user!
       unless current_user.team_user?(fetch_user)
-        redirect_to root_url, notice: 'チームメンバーではありません。'
+        redirect_to root_url, notice: "チームメンバーではありません。"
       end
     end
 
