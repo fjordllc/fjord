@@ -3,6 +3,14 @@ ja:
     formats:
       xshort: "%m月%d日"
       xxshort: "%m/%d"
+    short_day_names:
+      - 日
+      - 月
+      - 火
+      - 水
+      - 木
+      - 金
+      - 土
   time:
     formats:
       xshort: "%m月%d日 %H時%M分"
