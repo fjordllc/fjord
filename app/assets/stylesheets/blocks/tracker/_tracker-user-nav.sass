@@ -1,0 +1,47 @@
+.tracker-user-nav
+  max-height: 0
+  overflow: hidden
+  transition: max-height .2s ease-in
+  &.is-shown
+    max-height: 8.75rem
+.tracker-user-nav__items
+  background-color: #f4f4f4
+  margin-top: .5rem
+  margin-bottom: .5rem
+  border-radius: .25rem
+  overflow: hidden
+.tracker-user-nav__item
+  border-bottom: 1px solid #ddd
+  &:last-child
+    border-bottom: none
+.tracker-user-nav__item-inner
+  padding: .625rem .75rem
+  +text-block(.75rem 1.45, $default-text 800)
+.tracker-user-nav__item-link
+  +block-link
+  padding: .625rem .75rem
+  +text-block(.75rem 1.45, $default-text)
+  transition: background-color .2s ease-in, color .2s ease-in
+  +position(relative)
+  &::before
+    +fa('\f105')
+    +size(1rem)
+    +position(absolute, right 0, top 50%)
+    margin-top: -.5rem
+    +text-block(.75rem 1rem, left)
+  &:hover
+    background-color: $base-color
+    color: $default-text
+
+
+.project-status-item__show-details-button-icon
+  &.is-close
+    font-size: .9375rem
+    display: none
+    +top(-2px)
+    .tracker-user.is-shown &
+      display: inline-block
+  &.is-open
+    display: inline-block
+    .tracker-user.is-shown &
+      display: none
