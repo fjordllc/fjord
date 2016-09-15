@@ -2,41 +2,50 @@ $activities-nav-height: 2.25rem
 
 .activities-nav
   border-bottom: solid .0625rem #ddd
+  background-color: #f4f4f4
+  height: $activities-nav-height + .0625rem
+  +padding(horizontal, .75rem)
+.activities-nav__container
   +position(relative)
-  height: $activities-nav-height
-.activities-day-links
-  +position(absolute, left 0, top 0)
-  height: $activities-nav-height
-.activities-format
-  +position(absolute, right 0, top 0)
-  height: $activities-nav-height
-  display: flex
-  align-items: center
-  +padding(horizontal, 1rem)
 
 .activities-day-nav
   +size(20rem $activities-nav-height)
-  width: 20rem
+  width: 22rem
   +margin(horizontal, auto)
   display: flex
   align-items: center
   justify-content: space-between
 .activities-day-nav__day
   display: inline-block
-  width: 33.33%
+  height: $activities-nav-height
+  width: 30%
+  justify-content: center
+  +text-block(.8125rem, $muted-text)
   &.is-prev
-    text-align: left
-    font-size: .8125rem
+    border-left: #ddd solid 1px
   &.is-today
-    font-weight: 600
-    text-align: center
-    font-size: .9375rem
-  &.is-next
-    text-align: right
-    font-size: .8125rem
+    width: 40%
+    +position(relative)
+    cursor: pointer
+  &:hover
+    background-color: #eee
+    color: $default-text
+.activities-day-nav__day-inner
+  font-weight: 600
+  color: $default-text
+  height: $activities-nav-height
+  border-right: #ddd solid 1px
+  display: flex
+  align-items: center
+  justify-content: center
 .activities-day-nav__link
-  +default-link-color
-  +hover-link
+  +padding(horizontal, .75rem)
+  +size(100%)
+  display: flex
+  justify-content: center
+  align-items: center
+  +text-block(.8125rem, #777)
+  border-right: #ddd solid 1px
 .activities-day-nav__icon
   display: inline-block
   &.is-prev
@@ -44,12 +53,33 @@ $activities-nav-height: 2.25rem
   &.is-next
     margin-left: .375rem
 
-.activities-day-links
-  +padding(horizontal, 1rem)
-.activities-day-links__items
+.activities-to-today
+  +position(absolute, left 0, top 0)
   display: flex
-  align-items: center
   height: $activities-nav-height
   align-items: center
-.activities-day-links__item
-  padding-right: 1rem
+.activities-to-today__link
+  +padding(horizontal, .75rem)
+  +size(auto 1.5rem)
+  +text-block(.75rem, $accent-color flex center)
+  border: $accent-color solid 1px
+  border-radius: .25rem
+  background-color: #ffe3d0
+  align-items: center
+.activities-to-today__label
+  display: inline-block
+  margin-right: .25rem
+
+.activities-format
+  +position(absolute, right 0, top 0)
+  display: flex
+  height: $activities-nav-height
+  align-items: center
+.activities-format__link
+  +padding(horizontal, .75rem)
+  +size(auto 1.5rem)
+  +text-block(.75rem, $default-text flex center 600)
+  border: #999 solid 1px
+  border-radius: .25rem
+  background-color: $base-color
+  align-items: center

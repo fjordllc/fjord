@@ -1,20 +1,3 @@
-.member-status
-  padding-top: .625rem
-  padding-left: 1rem
-.member-status__tabs
-  border-bottom: solid 1px #ddd
-
-.member-status__tab
-  display: inline-block
-  border: solid 1px #ddd
-  +bottom(-1px)
-  padding: .5rem .75rem
-  +text-block(.75rem 1.45, center)
-  margin-right: .25rem
-  &.is-active
-    border-bottom-color: $base-color
-  &:last-child
-    margin-right: 0
 
 .member-status-item
   border-bottom: #ddd solid 1px
@@ -30,6 +13,9 @@
 .member-status-item__icon-image
   display: block
   border-radius: 50%
+  &.is-inactive
+    filter: grayscale(100%)
+    opacity: .6
 .member-status-item__name
   +text-block(.8125rem 1.4, $default-text)
   &.is-inactive

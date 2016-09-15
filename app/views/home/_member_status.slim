@@ -13,7 +13,7 @@ nav.member-status
               .member-status-item__inner
                 = link_to user do
                   .member-status-item__icon
-                    = image_tag user.avatar.url(:thumb), size: '32x32', class: "member-status-item__icon-image"
+                    = image_tag user.avatar.url(:thumb), size: '32x32', class: "member-status-item__icon-image #{user.current_project ? 'is-active' : 'is-inactive'}"
                 = link_to user do
                   h3.member-status-item__name(class="#{user.current_project ? 'is-active' : 'is-inactive'}")
                     = user.full_name
@@ -22,3 +22,7 @@ nav.member-status
                     = link_to user.current_project.title, project_url(user.current_project, subdomain: team.domain)
                   - else
                     | Zzzz
+    
+    .member-status__team-link-container
+      = link_to '', class: "member-status__team-link" do
+        | チーム

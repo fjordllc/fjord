@@ -1,0 +1,27 @@
+.member-status
+  padding-top: .625rem
+  padding-left: 1rem
+.member-status__tabs
+  border-bottom: solid 1px #ddd
+
+.member-status__tab
+  display: inline-block
+  border: solid 1px #ddd
+  +bottom(-1px)
+  padding: .5rem .75rem
+  +text-block(.75rem 1.45, center)
+  margin-right: .25rem
+  &.is-active
+    border-bottom-color: $base-color
+  &:last-child
+    margin-right: 0
+.member-status__team-link-container
+  text-align: right
+  margin-top: .75rem
+  padding-right: .75rem
+.member-status__team-link
+  +text-block(.75rem 1.45, center inline-block $default-text 600)
+  background-color: $base-color
+  padding: .25rem .75rem
+  border: #999 solid 1px
+  border-radius: .25rem

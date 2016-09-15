@@ -1,5 +1,22 @@
-- if current_user.current_project
-  #tracker.tracker
-    .tracker__container
-      .tracker__project-title= current_user.current_project.title
-      .timer.tracker__timer.js-timer(data-start-unixtime="#{project_time}") 00:00:00
+#tracker.tracker
+  .tracker-user.js-project-status-item-show
+    .tracker-user__link.js-project-status-item-show__trigger
+      = image_tag current_user.avatar.url(:thumb), size: '56x56', class: "tracker-user__icon-image"
+      .project-status-item__show-details
+        .project-status-item__show-details-button
+          i.fa.fa-angle-down.project-status-item__show-details-button-icon.is-open
+          .project-status-item__show-details-button-icon.is-close
+            | ×
+    nav.tracker-user-nav.js-project-status-item-show__target
+      ul.tracker-user-nav__items
+        li.tracker-user-nav__item
+          .tracker-user-nav__item-inner
+            = current_user.full_name
+        li.tracker-user-nav__item
+          = link_to 'アカウント編集', edit_user_registration_url(subdomain: false), class: "tracker-user-nav__item-link"
+        li.tracker-user-nav__item
+          = link_to 'サインアウト', destroy_user_session_url(subdomain: false), class: "tracker-user-nav__item-link"
+  - if current_user.current_project
+    .tracker-timer
+      .tracker-timer__project-title= current_user.current_project.title
+      .timer.tracker-timer__timer.js-timer(data-start-unixtime="#{project_time}") 00:00:00

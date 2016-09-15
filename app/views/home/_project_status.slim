@@ -23,7 +23,13 @@
                 time.project-status-item__total-time 00:00:00
           .project-status-item__show-details.js-project-status-item-show__trigger
             .project-status-item__show-details-button
-              i.fa.fa-angle-down
-        .project-status-item__body.js-project-status-item-show__target
-          .project-status-item__body-inner
-            | それは黄金の昼下がり気ままにただようぼくらオールは二本ともあぶなげに小さな腕で漕がれ小さな手がぼくらのただよいを導こうとかっこうだけ申し訳につけてああ残酷な三人！こんな時間にこんな夢見る天気のもとで
+              i.fa.fa-angle-down.project-status-item__show-details-button-icon.is-open
+              .project-status-item__show-details-button-icon.is-close
+                | ×
+        .project-status-item-body.js-project-status-item-show__target
+          .project-status-item-body__inner
+            .project-status-item-body__description
+              p
+                | それは黄金の昼下がり気ままにただようぼくらオールは二本ともあぶなげに小さな腕で漕がれ小さな手が
+            .project-status-item-body__link-container
+              = link_to "詳細", project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link"

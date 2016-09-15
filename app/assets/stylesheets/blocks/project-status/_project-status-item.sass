@@ -1,13 +1,12 @@
-.project-status
-  +overflow(hidden auto)
-  background-color: #5a5a5a
 .project-status-item
   border-bottom: 1px solid #3a3a3a
   &.is-active
     background-color: $base-color
+    .project-status-item__show-details-button
+      color: #888
 .project-status-item__header
   +position(relative)
-  padding-right: 3rem
+  padding-right: 2.25rem
 .project-status-item__link
   +block-link
   padding: .5rem
@@ -26,20 +25,29 @@
   padding: .5rem
 .project-status-item__show-details-button
   +size(1.25rem)
-  background-color: #ddd
+  background-color: transparent
   border-radius: .1875rem
-  +text-block(.8125rem 1.25rem, center)
+  +text-block(.8125rem 1.25rem, center #ccc)
+  cursor: pointer
+  transition: background-color .2s ease-in, color .2s ease-in
+  .project-status-item.is-shown &,
+  .tracker-user.is-shown &
+    background-color: #383838
+    color: $reversal-text
   .project-status-item__show-details:hover &
     background-color: $primary
+    color: $reversal-text
 .project-status-item__total-time
   +text-block(.75rem 1.45, block $muted-text)
-.project-status-item__body
-  max-height: 0
-  overflow: hidden
-  transition: max-height .2s ease-in
-  &.is-active
-    max-height: 8.75rem
-.project-status-item__body-inner
-  +padding(horizontal, .5rem)
-  padding-bottom: .75rem
-  +text-block(.75rem 1.45)
+
+.project-status-item__show-details-button-icon
+  &.is-close
+    font-size: .9375rem
+    display: none
+    +top(-2px)
+    .project-status-item.is-shown &
+      display: inline-block
+  &.is-open
+    display: inline-block
+    .project-status-item.is-shown &
+      display: none
