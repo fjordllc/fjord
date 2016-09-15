@@ -18,13 +18,23 @@ html lang="ja"
             = render 'project_status'
           .col-md-8.col-xl-10
             = render 'header'
-            main.page-body.js-main
+            main.page-body.js-main-height
+              = render 'alert'
+              = yield
+    - elsif yield(:page_classes).include?('has-report-filter')
+      .container.is-padding-horizontal-0
+        .row.is-gutter-width-0
+          .col-md-3.col-xl-2
+            = render 'reports/report_filter'
+          .col-md-8.col-xl-10
+            = render 'header'
+            main.page-body.js-main-height
               = render 'alert'
               = yield
     - else
       - unless yield(:page_classes).include?('has-no-header')
         = render 'header'
-      main.page-body.js-main
+      main.page-body.js-main-height
         = render 'alert'
         - if user_signed_in?
             = yield
@@ -32,5 +42,5 @@ html lang="ja"
           main.page-body
             = yield
       - unless yield(:page_classes).include?('has-no-footer')
-        footer.footer.js-footer#footer
+        footer.footer.js-footer-height#footer
           | fjord, llc

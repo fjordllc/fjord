@@ -1,0 +1,44 @@
+.activities-day-nav
+  +size(20rem $activities-nav-height)
+  width: 22rem
+  +margin(horizontal, auto)
+  display: flex
+  align-items: center
+  justify-content: space-between
+.activities-day-nav__day
+  display: inline-block
+  height: $activities-nav-height
+  width: 30%
+  justify-content: center
+  +text-block(.8125rem, $muted-text)
+  &.is-prev
+    border-left: #ddd solid 1px
+  &.is-today
+    width: 40%
+    +position(relative)
+    cursor: pointer
+  &:hover
+    background-color: #eee
+    color: $default-text
+.activities-day-nav__day-inner
+  font-weight: 600
+  color: $default-text
+  height: $activities-nav-height
+  border-right: #ddd solid 1px
+  display: flex
+  align-items: center
+  justify-content: center
+.activities-day-nav__link
+  +padding(horizontal, .75rem)
+  +size(100%)
+  display: flex
+  justify-content: center
+  align-items: center
+  +text-block(.8125rem, #777)
+  border-right: #ddd solid 1px
+.activities-day-nav__icon
+  display: inline-block
+  &.is-prev
+    margin-right: .375rem
+  &.is-next
+    margin-left: .375rem

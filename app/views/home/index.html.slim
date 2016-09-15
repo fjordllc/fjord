@@ -4,12 +4,12 @@
 .container.is-padding-horizontal-0
   .row.is-gutter-width-0
     .col-md-6.col-xl-9
-      .activities.js-body
-        header.activities__header.js-activities-header
+      .activities.js-body-height
+        header.activities__header.js-activities-header-height
           = render 'activities_day_nav'
-        .activities__body.js-activities-body
+        .activities__body.js-activities-body-height
           = render 'activities/activities', activities: @activities
-        footer.activities__footer.js-activities-footer
+        footer.activities__footer.js-activities-footer-height
           .inner
             = render 'notes/form', note: Note.new, return_to: root_url
 
