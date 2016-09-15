@@ -1,0 +1,24 @@
+.report-filter.js-window-height
+  header.report-filter__header
+    h2.report-filter__title
+      | プロジェクトで絞り込む
+  .report-filter-projects
+    - current_user.projects.each do |project|
+      .report-filter-projects-item.js-report-filter-item-show(class="#{project == current_user.current_project ? 'is-active' : ''}")
+        header.report-filter-projects-item__header
+          .report-filter-projects-item__inner
+            h3.report-filter-projects-item__title.is-active
+              = project.title
+        .report-filter-projects-item-body.js-report-filter-item-show__target
+          .report-filter-projects-item-body__inner
+            .report-filter-projects-item-body__link-container
+              = link_to "詳細", project_url(project, subdomain: project.team.domain), class: "report-filter-projects-item-body__link"
+
+  .report-filter-actions
+    ul.report-filter-actions__items
+      li.report-filter-actions__item
+        = link_to '', class: "report-filter-actions__item-action is-button-standard-sm-secondary is-block" do
+          | 作業報告書を作成
+      li.report-filter-actions__item
+        = link_to '', class: "report-filter-actions__item-action is-button-standard-sm-secondary is-block" do
+          | 請求書を作成

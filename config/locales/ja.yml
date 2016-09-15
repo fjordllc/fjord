@@ -3,6 +3,7 @@ ja:
     formats:
       xshort: "%m月%d日"
       xxshort: "%m/%d"
+      only_month: "%m月"
     short_day_names:
       - 日
       - 月

@@ -1,4 +1,4 @@
-header.header.js-header(class="#{yield(:page_classes)}")
+header.header.js-header-height(class="#{yield(:page_classes)}")
   .container
     .header__container
       = link_to root_path, class: 'header__logo-link' do
@@ -6,6 +6,8 @@ header.header.js-header(class="#{yield(:page_classes)}")
       - if user_signed_in?
         nav.header-global-nav
           ul.header-global-nav__items
+            li.header-global-nav__item
+              = link_to 'タイムトラッキング', root_path, class: "header-global-nav__item-link"
             li.header-global-nav__item
               = link_to 'レポート', reports_months_path, class: "header-global-nav__item-link"
             li.header-global-nav__item.dropdown

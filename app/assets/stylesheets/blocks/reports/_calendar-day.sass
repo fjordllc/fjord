@@ -1,0 +1,65 @@
+.calendar-day
+  +border(right bottom, solid .0625rem #ddd)
+  height: 100%
+  padding: 1.75rem .25rem .25rem
+  flex: 0 0 (100 / 7 * 1%)
+  +position(relative)
+  overflow: hidden
+.calendar-day__label
+  +position(absolute, left 0, top 0)
+  width: 100%
+.calendar-day__label-link
+  +text-block(.875rem 1.45, 600 $default-text)
+  padding: .25rem .5rem
+  +block-link
+  &.is-sat
+    color: #2f8fb4
+  &.is-sun
+    color: #d52525
+.calendar-day__label-month
+  display: inline-block
+  margin-right: .25rem
+.calendar-day__transactions
+  +overflow(hidden auto)
+  +size(100%)
+.calendar-day__transaction
+  +text-block(.75rem 1.45)
+  border-bottom: #ddd dotted .0625rem
+  &:last-child
+    border-bottom: none
+.calendar-day__transaction-link
+  color: #498faa
+  padding: .25rem
+  +block-link
+  width: 100%
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  &:hover
+    background-color: #f4f4f4
+.calendar-day__transaction-start
+  font-weight: 600
+  display: inline-block
+  margin-right: .5rem
+
+.calendar__week
+  &.is-1
+    .is-23,
+    .is-24,
+    .is-25,
+    .is-26,
+    .is-27,
+    .is-28,
+    .is-29,
+    .is-30,
+    .is-31
+      background-color: #f4f4f4
+  &.is-5
+    .is-1,
+    .is-2,
+    .is-3,
+    .is-4,
+    .is-5,
+    .is-6,
+    .is-7
+      background-color: #f4f4f4

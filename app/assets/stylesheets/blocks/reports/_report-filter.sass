@@ -1,0 +1,35 @@
+.report-filter
+  +overflow(hidden auto)
+  background-color: #5a5a5a
+
+.report-filter-projects-item
+  padding: .5rem .75rem
+  border-bottom: 1px solid #3a3a3a
+  +position(relative)
+  &::after
+    $checkbox-size: .75rem
+    content: ''
+    display: block
+    +size($checkbox-size)
+    +position(absolute, right .75rem, top 50%)
+    border: solid .0625rem #bbb
+    margin-top: $checkbox-size / 2 * -1
+    background-color: #515151
+    border-radius: .125rem
+.report-filter-projects-item__title
+  +text-block(.8125rem 1.45, 400 $reversal-text)
+.report-filter-projects-item-body
+  display: none
+
+.report-filter__header
+  background-color: #383838
+  padding: .625rem .75rem
+.report-filter__title
+  +text-block(.875rem 1.45, 600 $reversal-text)
+
+.report-filter-actions
+  padding: .75rem
+.report-filter-actions__item
+  margin-bottom: .25rem
+  &:last-child
+    margin-bottom: 0
