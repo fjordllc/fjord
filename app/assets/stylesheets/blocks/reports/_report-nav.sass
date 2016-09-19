@@ -2,5 +2,18 @@
   border-bottom: solid .0625rem #ddd
   background-color: #f4f4f4
   height: $activities-nav-height + .0625rem
-  +padding(horizontal, .75rem)
+.report-nav__container
+  +position(relative)
+
+.report-nav-change-view
+  +position(absolute, right 0, top 0)
+.report-nav-change-view__link
+  +block-link
+  +size(2.5rem $activities-nav-height)
   display: flex
+  align-items: center
+  justify-content: center
+  border-left: #ddd solid 1px
+  +text-block(1.125rem 1.45, $default-text)
+  &:hover
+    background-color: #eee

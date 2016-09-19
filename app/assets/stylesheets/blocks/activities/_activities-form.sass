@@ -19,10 +19,12 @@
   +position(absolute, right 0, bottom 0)
   width: 4rem
 .activities-form__submit
-  background-color: #c6f0ff
-  +text-block(.875rem 2.75rem, center 600 block #1c7393)
+  background-color: $base-color
+  +text-block(.875rem 2.75rem, center 600 block)
   width: 100%
   border-top: solid 2px #ddd
   cursor: pointer
+  transition: background-color .2s ease-in, color .2s ease-in
   &:hover
     background-color: #66c7e9
+    color: #1c7393

@@ -1,0 +1,15 @@
+## 作業時間
+
+<%= l @timelines&.first&.time, format: :xxshort %> - <%= l @timelines&.last&.time, format: :xxshort %>
+
+## 作業内容
+
+<% @timelines.each do |timeline| %>
+<%= render 'timelines/timeline_md', timeline: timeline -%>
+<% end %>
+
+## 分報
+
+<% @notes.each do |note| %>
+<%= render 'notes/note_md', note: note -%>
+<% end %>

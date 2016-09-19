@@ -16,9 +16,14 @@
 
   .report-filter-actions
     ul.report-filter-actions__items
-      li.report-filter-actions__item
-        = link_to '', class: "report-filter-actions__item-action is-button-standard-sm-secondary is-block" do
-          | 作業報告書を作成
-      li.report-filter-actions__item
-        = link_to '', class: "report-filter-actions__item-action is-button-standard-sm-secondary is-block" do
-          | 請求書を作成
+      - if yield(:page_classes).include?('is-monthly-report')
+        li.report-filter-actions__item
+          = link_to '', class: "report-filter-actions__item-action is-button-standard-sm-secondary is-block" do
+            | 作業報告書を作成
+        li.report-filter-actions__item
+          = link_to '', class: "report-filter-actions__item-action is-button-standard-sm-secondary is-block" do
+            | 請求書を作成
+      - elsif yield(:page_classes).include?('is-daily-report') && @timelines.present?
+        li.report-filter-actions__item
+          = link_to reports_dailies_path(day: @day.strftime("%Y-%m-%d"), format: 'md'), class: "report-filter-actions__item-action is-button-standard-sm-secondary is-block" do
+            | MarkDown

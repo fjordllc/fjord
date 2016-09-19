@@ -1,22 +1,33 @@
-- content_for(:page_classes, "has-no-footer has-report-filter")
+- content_for(:page_classes, "has-no-footer has-report-filter is-monthly-report")
 
 nav.report-nav.js-body-nav-height
-  .container
-    nav.report-month-nav
-      .report-month-nav__month.is-prev
-        = link_to reports_months_path(month: @target_date.prev_month.strftime("%Y-%m")), class: "report-month-nav__link is-prev" do
-          .report-month-nav__icon.is-prev
+  .report-nav__container
+    ul.report-prev-next-nav
+      li.report-prev-next-nav__item.is-prev
+        = link_to reports_months_path(month: @target_date.prev_month.strftime("%Y-%m")), class: "report-prev-next-nav__link is-prev" do
+          .report-prev-next-nav__icon.is-prev
             i.fa.fa-angle-left
-          = t("date.abbr_month_names")[@target_date.prev_month.month]
-      .report-month-nav__month.is-current-month
-        .report-month-nav__link.is-current-month
-          = t("date.abbr_month_names")[@target_date.year]
-          = t("date.abbr_month_names")[@target_date.month]
-      .report-month-nav__month.is-next
-        = link_to reports_months_path(month: @target_date.next_month.strftime("%Y-%m")), class: "report-month-nav__link is-next" do
-          = t("date.abbr_month_names")[@target_date.next_month.month]
-          .report-month-nav__icon.is-next
+          - if @target_date.prev_month.month == 1
+            = l @target_date.prev_month, format: :year_and_month
+          - else
+            = l @target_date.prev_month, format: :only_month
+      li.report-prev-next-nav__item.is-current.js-datepicker
+        .report-prev-next-nav__link.is-current.dropdown-toggle
+          = l @target_date, format: :year_and_month
+      li.report-prev-next-nav__item.is-next
+        = link_to reports_months_path(month: @target_date.next_month.strftime("%Y-%m")), class: "report-prev-next-nav__link is-next" do
+          - if @target_date.next_month.month == 1
+            = l @target_date.next_month, format: :year_and_month
+          - else
+            = l @target_date.next_month, format: :only_month
+          .report-prev-next-nav__icon.is-next
             i.fa.fa-angle-right
+    .report-nav-to-today
+      - unless @target_date.month == Date.today.month
+        = link_to reports_months_path(day: Date.today.strftime("%Y-%m")), class: "report-nav-to-today__link"
+          .report-nav-to-today__label
+            = t('this_month')
+          i.fa.fa-angle-right
 
 .calendar
   .container
@@ -30,23 +41,23 @@ nav.report-nav.js-body-nav-height
           .calendar__week(class="is-#{i + 1}")
             - 7.times.each do |j|
               - day = @first_date + (i * 7 + j)
-              .calendar-day(class="is-#{day.day} is-#{day.strftime("%a").downcase}")
-                .calendar-day__label
-                  = link_to reports_dailies_path(day: day.strftime("%Y-%m-%d")), class: "calendar-day__label-link is-#{day.strftime("%a").downcase}" do
+              .calendar-day(class="is-#{day.day} is-#{day.strftime("%a").downcase} #{Date.today == day ? 'is-current' : ''}")
+                = link_to reports_dailies_path(day: day.strftime("%Y-%m-%d")), class: "calendar-day__link" do
+                  .calendar-day__label(class="is-#{day.strftime("%a").downcase}")
                     - if day.day == 1
                       span.calendar-day__label-month
                         = l(day, format: :only_month)
                       = day.day
                     - else
                       = day.day
-                .calendar-day__transactions
-                  - trans = @transactions[day.strftime("%m%d")] || []
-                  - trans.each do |tran|
-                    .calendar-day__transaction
-                      = link_to project_url(tran.project, subdomain: tran.project.team.domain), class: "calendar-day__transaction-link" do
-                        - start  = tran.started_at.strftime("%H:%m")
-                        span.calendar-day__transaction-start
-                          = start
-                        span.calendar-day__transaction-title
-                          = tran.project.title
-                          
+                  .calendar-day__transactions
+                    - trans = @transactions[day.strftime("%m%d")] || []
+                    - trans.each do |tran|
+                      .calendar-day__transaction(class="is-project-id-#{tran.project.id}")
+                        .calendar-day__transaction-link(class="is-project-id-#{tran.project.id}")
+                          - start  = tran.started_at.strftime("%H:%m")
+                          span.calendar-day__transaction-start
+                            = start
+                          span.calendar-day__transaction-title
+                            = tran.project.title
+                            

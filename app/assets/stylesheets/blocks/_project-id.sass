@@ -1,0 +1,27 @@
+.activities-project-separater
+  @for $i from 1 through 16
+    &.is-project-id-#{$i}
+      background-color: tint(nth($md-500-colors, $i), 80%)
+      &::before
+        border-right-color: tint(nth($md-500-colors, $i), 50%)
+.activities-item__inner
+  @for $i from 1 through 16
+    &.is-project-id-#{$i}
+      border-color: tint(nth($md-500-colors, $i), 50%)
+      &.is-finish
+        &::before
+          border-left-color: tint(nth($md-500-colors, $i), 50%)
+          border-bottom-color: tint(nth($md-500-colors, $i), 50%)
+.time-table-activity
+  @for $i from 1 through 16
+    &.is-project-id-#{$i}
+      border-color: tint(nth($md-500-colors, $i), 50%)
+.time-table-activity__inner
+  @for $i from 1 through 16
+    &.is-project-id-#{$i}
+      border-color: tint(nth($md-500-colors, $i), 50%)
+      background-color: tint(nth($md-500-colors, $i), 90%)
+.calendar-day__transaction-link
+  @for $i from 1 through 16
+    &.is-project-id-#{$i}
+      color: shade(nth($md-500-colors, $i), 30%)
