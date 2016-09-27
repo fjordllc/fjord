@@ -19,8 +19,11 @@ nav.activities-nav
       - unless request.path_info == '/'
         = link_to root_path, class: "activities-to-today__link" do
           .activities-to-today__label
-            = t('to_today')
-          i.fa.fa-angle-double-right
+            = t('today')
+          i.fa.fa-angle-right
 
     .activities-format
-      = link_to 'Markdown', yield(:markdown_link), target: '_blank', class: 'activities-format__link'
+      = link_to reports_dailies_path(day: @date.strftime("%Y-%m-%d")), class: 'activities-format__link' do
+        span.activities-format__link-label
+          | レポート
+        i.fa.fa-angle-right

@@ -1,5 +1,62 @@
-- content_for(:page_classes, "has-no-footer")
+- content_for(:page_classes, "has-no-footer  has-report-filter is-daily-report")
 
-h2= @day
-.activities__body
-  = render 'activities/activities', activities: @activities
+nav.report-nav.js-body-nav-height
+  .report-nav__container
+    ul.report-prev-next-nav
+      li.report-prev-next-nav__item.is-prev
+        = link_to reports_dailies_path(day: @day.prev_day.strftime("%Y-%m-%d")), class: "report-prev-next-nav__link is-prev" do
+          .report-prev-next-nav__icon.is-prev
+            i.fa.fa-angle-left
+          - if @day.prev_day.day == 1
+            = l @day.prev_day, format: :xshort
+          -else
+            = l @day.prev_day, format: :only_day
+      li.report-prev-next-nav__item.is-current.js-datepicker
+        .report-prev-next-nav__link.is-current.dropdown-toggle
+          = l @day, format: :short
+      li.report-prev-next-nav__item.is-next
+        = link_to reports_dailies_path(day: @day.next_day.strftime("%Y-%m-%d")), class: "report-prev-next-nav__link is-next" do
+          - if @day.next_day.day == 1
+            = l @day.next_day, format: :xshort
+          -else
+            = l @day.next_day, format: :only_day
+          .report-prev-next-nav__icon.is-next
+            i.fa.fa-angle-right
+    .report-nav-to-today
+      - unless @day == Date.today
+        = link_to reports_dailies_path(day: Date.today.strftime("%Y-%m-%d")), class: "report-nav-to-today__link"
+          .report-nav-to-today__label
+            = t('today')
+          i.fa.fa-angle-right
+    .report-nav-change-view
+      = link_to reports_months_path(day: @day.strftime("%Y-%m")), class: "report-nav-change-view__link"
+        i.fa.fa-table
+.container
+  .row
+    .col-md-6
+      .time-table.js-reports-dailies-body-height
+        .time-table__items
+          .time-table__activities
+            - @activities.each.with_index do |activity, i|
+              - if activity.time
+                - case activity.source_model
+                  - when Transaction
+                    - if activity.status.to_s == 'start'
+                      - finish = @activities[i + 1]
+                      .time-table-activity(class="is-project-id-#{activity.project.id}" style="top: #{(activity.time.hour * 60 + activity.time.min)/16}rem; height: #{((finish.time.hour * 60 + finish.time.min)/16) - ((activity.time.hour * 60 + activity.time.min)/16)}rem")
+                        .time-table-activity__inner(class="is-project-id-#{activity.project.id}")
+                          .time-table-activity__title
+                            span.time-table-activity__description
+                              = activity.description
+                            span.time-table-activity__time
+                              = l activity.time, format: :only_time
+                              | 〜
+                              = l finish.time, format: :only_time
+
+          - (0..24).each do |i|
+            .time-table-item(class= "is-#{i}")
+              .time-table-item__label
+                | #{i}:00
+    .col-md-6
+      .activities__body.js-reports-dailies-body-height
+        = render 'activities/activities', activities: @activities

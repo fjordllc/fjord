@@ -2,7 +2,7 @@
   - case activity.source_model
     - when Transaction
       - if activity.status.to_s == 'start'
-        .activities-project-separater(class="is-#{activity.project.id}")
+        .activities-project-separater(class="is-project-id-#{activity.project.id}")
           h3.activities-project-separater__title
             span.activities-project-separater__time
               = l activity.time, format: :only_time
@@ -14,8 +14,8 @@
             li.activities-project-separater__action-item
               = link_to '削除', activities_delete_url(activity), method: :delete, class: "activities-project-separater__action-item-link"
       - else
-        article.activities-item.activities-finish.is-finish(class="is-#{activity.project.id}")
-          .activities-item__inner.is-finish
+        article.activities-item.activities-finish.is-finish(class="is-project-id-#{activity.project.id}")
+          .activities-item__inner.is-finish(class="is-project-id-#{activity.project.id}")
             time.activities-item__time
               = l activity.time, format: :only_time
             .activities-item__time-label
@@ -27,8 +27,8 @@
                 = link_to '削除', activities_delete_url(activity), method: :delete, class: "activities-item__action-item-link"
 
     - when Note
-      article.activities-item.is-note(class="is-#{activity.project.id}")
-        .activities-item__inner
+      article.activities-item.is-note(class="is-project-id-#{activity.project.id}")
+        .activities-item__inner(class="is-project-id-#{activity.project.id}")
           header.activities-item__header
             .activities-item__icon
               = activities_icon(activity)

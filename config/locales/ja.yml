@@ -1,9 +1,12 @@
 ja:
   date:
     formats:
+      short: "%Y年%m月%d日"
       xshort: "%m月%d日"
       xxshort: "%m/%d"
+      year_and_month: "%Y年%m月"
       only_month: "%m月"
+      only_day: "%d日"
     short_day_names:
       - 日
       - 月
@@ -55,4 +58,4 @@ ja:
   please_select: 選択してください
   "start_xxxx": "%{target}"
   today: 今日
-  to_today: 今日に戻る
+  this_month: 今月

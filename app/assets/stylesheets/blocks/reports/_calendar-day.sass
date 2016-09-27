@@ -1,17 +1,23 @@
 .calendar-day
   +border(right bottom, solid .0625rem #ddd)
   height: 100%
-  padding: 1.75rem .25rem .25rem
   flex: 0 0 (100 / 7 * 1%)
   +position(relative)
   overflow: hidden
+  &.is-current
+    background-color: #e7f8ff
+.calendar-day__link
+  +block-link
+  +position(absolute, left 0, top 0, right 0, bottom 0)
+  padding: 1.75rem .25rem .25rem
+  transition: box-shadow .2s ease-in
+  &:hover
+    box-shadow: #abddf0 0 0 0 2px inset
 .calendar-day__label
   +position(absolute, left 0, top 0)
   width: 100%
-.calendar-day__label-link
   +text-block(.875rem 1.45, 600 $default-text)
   padding: .25rem .5rem
-  +block-link
   &.is-sat
     color: #2f8fb4
   &.is-sun
@@ -24,23 +30,20 @@
   +size(100%)
 .calendar-day__transaction
   +text-block(.75rem 1.45)
-  border-bottom: #ddd dotted .0625rem
   &:last-child
     border-bottom: none
 .calendar-day__transaction-link
   color: #498faa
-  padding: .25rem
-  +block-link
+  padding: .125rem .25rem
+  display: block
   width: 100%
   white-space: nowrap
   overflow: hidden
   text-overflow: ellipsis
-  &:hover
-    background-color: #f4f4f4
 .calendar-day__transaction-start
-  font-weight: 600
   display: inline-block
   margin-right: .5rem
+  color: $default-text
 
 .calendar__week
   &.is-1

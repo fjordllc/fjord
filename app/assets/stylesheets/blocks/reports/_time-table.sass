@@ -1,0 +1,38 @@
+.time-table
+  +overflow(hidden auto)
+  padding: 1rem 1rem 1rem 4rem
+.time-table__items
+  border: solid .0625rem #ddd
+  +position(relative)
+
+.time-table-item
+  +size(100% 3.75rem)
+  border-bottom: solid .0625rem #ddd
+  +position(relative)
+  &:last-child
+    border-bottom: none
+.time-table-item__label
+  +position(absolute, left -2.75rem, top -.5rem)
+  +text-block(.8125rem 1rem, 600 right)
+  +size(2.75rem auto)
+  padding-right: .5rem
+
+.time-table-activity
+  +position(absolute, left 0, right 0, 1)
+  border: solid .0625rem
+  overflow: hidden
+  min-height: 0
+  transition: min-height .1s ease-in
+  &:hover
+    overflow: visible
+    z-index: 2
+    min-height: 2rem
+.time-table-activity__inner
+  background-color: rgba(black, .1)
+  padding: .25rem
+  height: 100%
+  font-size: .75rem
+.time-table-activity__description
+  display: inline-block
+  font-weight: 600
+  margin-right: .25rem
