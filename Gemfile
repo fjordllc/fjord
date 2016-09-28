@@ -26,6 +26,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'fog'
 gem 'sucker_punch', '~> 2.0'
 gem 'redcarpet'
+gem 'rack-user_agent'
 
 group :production, :staging, :review do
   gem 'rails_12factor'

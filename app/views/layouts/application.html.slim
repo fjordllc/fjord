@@ -9,6 +9,8 @@ html lang="ja"
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', media: 'all'
     = stylesheet_link_tag '//fonts.googleapis.com/earlyaccess/notosansjapanese.css', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    - unless request.from_smartphone?
+      = javascript_include_tag 'pc_layout', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
   body(class="#{body_class} #{yield(:page_classes)}")
     - if yield(:page_classes).include?('has-project-status')
@@ -34,13 +36,12 @@ html lang="ja"
     - else
       - unless yield(:page_classes).include?('has-no-header')
         = render 'header'
-      main.page-body.js-main-height
+      main.page-body.js-main-height.js-body-height
         = render 'alert'
-        - if user_signed_in?
-            = yield
-        - else
-          main.page-body
-            = yield
+        = yield
       - unless yield(:page_classes).include?('has-no-footer')
         footer.footer.js-footer-height#footer
-          | fjord, llc
+          .container
+            small.footer__copylight
+              i.fa.fa-copyright
+              | fjord, llc

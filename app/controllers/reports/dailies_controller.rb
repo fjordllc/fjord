@@ -4,6 +4,7 @@ class Reports::DailiesController < ApplicationController
 
   def index
     set_activities(current_user, @day)
+    @transactions = current_user.transactions.where(started_at: @day..@day.tomorrow).order(:started_at)
   end
 
   private

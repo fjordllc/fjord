@@ -18,7 +18,7 @@ nav.report-nav.js-body-nav-height
         = link_to reports_dailies_path(day: @day.next_day.strftime("%Y-%m-%d")), class: "report-prev-next-nav__link is-next" do
           - if @day.next_day.day == 1
             = l @day.next_day, format: :xshort
-          -else
+          - else
             = l @day.next_day, format: :only_day
           .report-prev-next-nav__icon.is-next
             i.fa.fa-angle-right
@@ -36,22 +36,17 @@ nav.report-nav.js-body-nav-height
     .col-md-6
       .time-table.js-reports-dailies-body-height
         .time-table__items
-          .time-table__activities
-            - @activities.each.with_index do |activity, i|
-              - if activity.time
-                - case activity.source_model
-                  - when Transaction
-                    - if activity.status.to_s == 'start'
-                      - finish = @activities[i + 1]
-                      .time-table-activity(class="is-project-id-#{activity.project.id}" style="top: #{(activity.time.hour * 60 + activity.time.min)/16}rem; height: #{((finish.time.hour * 60 + finish.time.min)/16) - ((activity.time.hour * 60 + activity.time.min)/16)}rem")
-                        .time-table-activity__inner(class="is-project-id-#{activity.project.id}")
-                          .time-table-activity__title
-                            span.time-table-activity__description
-                              = activity.description
-                            span.time-table-activity__time
-                              = l activity.time, format: :only_time
-                              | 〜
-                              = l finish.time, format: :only_time
+          .time-table__transactions
+            - @transactions.each.with_index do |transaction, i|
+              .time-table-transaction(class="is-project-id-#{transaction.project.id}" style="top: #{(transaction.started_at.hour * 60 + transaction.started_at.min)/16}rem; height: #{((transaction.finished_at.hour * 60 + transaction.finished_at.min)/16) - ((transaction.started_at.hour * 60 + transaction.started_at.min)/16)}rem")
+                .time-table-transaction__inner(class="is-project-id-#{transaction.project.id}")
+                  .time-table-transaction__title-time
+                    span.time-table-transaction__title
+                      = transaction.project.title
+                    span.time-table-transaction__time
+                      = l transaction.started_at, format: :only_time
+                      | 〜
+                      = l transaction.finished_at, format: :only_time
 
           - (0..24).each do |i|
             .time-table-item(class= "is-#{i}")
