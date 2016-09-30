@@ -30,17 +30,16 @@ $(document).on 'turbolinks:load', ->
     reportsDailiesBodyHeight = $(window).outerHeight() - (headerHeight + footerHeight + bodyNavrHeight)
     $('.js-reports-dailies-body-height').css 'height', reportsDailiesBodyHeight + 'px'
 
-  $(document).on 'turbolinks:load', setBodyHeight()
-  $(window).resize -> setBodyHeight()
+  $(document).on 'turbolinks:load',
+    setBodyHeight()
+    setCalendarBodyHeight()
+    setWindowHeight()
+    setActivitiesBodyHeight()
+    setReportsDailiesBodyHeight()
 
-  $(document).on 'turbolinks:load', setCalendarBodyHeight()
-  $(window).resize -> setCalendarBodyHeight()
-
-  $(document).on 'turbolinks:load', setWindowHeight()
-  $(window).resize -> setWindowHeight()
-
-  $(document).on 'turbolinks:load', setActivitiesBodyHeight()
-  $(window).resize -> setActivitiesBodyHeight()
-
-  $(document).on 'turbolinks:load', setReportsDailiesBodyHeight()
-  $(window).resize -> setReportsDailiesBodyHeight()
+  $(window).resize ->
+    setBodyHeight()
+    setCalendarBodyHeight()
+    setWindowHeight()
+    setActivitiesBodyHeight()
+    setReportsDailiesBodyHeight()
