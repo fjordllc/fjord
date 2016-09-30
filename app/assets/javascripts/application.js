@@ -15,8 +15,8 @@
 //= require turbolinks
 //= require tether
 //= require autosize
-//= require jquery.exresize
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ja.js
 //= require_tree .
+//= stub pc_layout

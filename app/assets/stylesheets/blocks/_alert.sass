@@ -1,13 +1,14 @@
 .alert
   +padding(vertical, .75rem)
   background-color: $danger
+  +position(absolute, left 0, right 0, 2)
   &.has-list
     padding-bottom: .25rem
   &.is-success
-    background-color: $success
+    background-color: rgba($success, .75)
   &.is-danger,
   &.is-error
-    background-color: $danger
+    background-color: rgba($danger, .75)
     color: $danger-text
 .alert__container
   +position(relative)
@@ -24,11 +25,11 @@
     cursor: pointer
     opacity: .8
 .alert__title
-  +text-block(14px 1.45 .75rem)
+  +text-block(14px 1.45 .75rem, $reversal-text)
 .alert__items
   li
     display: inline-block
-    +text-block(.75rem 1.45, center)
+    +text-block(.75rem 1.45, center $reversal-text)
     padding: .3125rem .625rem
     border-radius: .25rem
     margin: 0 .375rem .5rem

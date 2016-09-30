@@ -15,5 +15,6 @@ module Fjord
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Tokyo'
     config.active_job.queue_adapter = :sucker_punch
+    config.assets.precompile += %w(pc_layout.js footerFixed.js)
   end
 end
