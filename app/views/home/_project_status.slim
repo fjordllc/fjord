@@ -31,5 +31,26 @@
             .project-status-item-body__description
               p
                 | それは黄金の昼下がり気ままにただようぼくらオールは二本ともあぶなげに小さな腕で漕がれ小さな手が
-            .project-status-item-body__link-container
-              = link_to "詳細", project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link"
+            .project-status-item-body__links
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.fa.fa-github-alt
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.fa.fa-bitbucket
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.fa.fa-slack
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.icon-docbase
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.icon-esa
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.icon-yammer
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.icon-idobata
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.icon-gitlab
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.icon-redmine
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link" do
+                i.icon-pivotal-tracker
+              = link_to project_url(project, subdomain: project.team.domain), class: "project-status-item-body__link is-to-project-url" do
+                | プロジェクトページ
