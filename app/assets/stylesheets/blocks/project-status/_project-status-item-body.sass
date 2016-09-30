@@ -15,10 +15,22 @@
     +text-block(.75rem 1.45, $reversal-text)
     .project-status-item.is-active &
       color: $default-text
-.project-status-item-body__link-container
-  text-align: right
+.project-status-item-body__links
+  display: flex
+  flex-wrap: wrap
 .project-status-item-body__link
-  background-color: #383838
-  +text-block(.75rem 1.45, $reversal-text)
-  padding: .25rem .75rem
+  +text-block(1.25rem 1.45, $muted-text center flex)
   border-radius: .25rem
+  +size(1.75rem)
+  margin-right: .25rem
+  align-items: center
+  justify-content: center
+  background-color: transparent
+  transition: background-color .2s ease-in
+  &.is-to-project-url
+    width: auto
+    +text-block(.75rem 1.4)
+    +padding(horizontal, .5rem)
+  &:hover
+    background-color: $primary
+    color: $reversal-text

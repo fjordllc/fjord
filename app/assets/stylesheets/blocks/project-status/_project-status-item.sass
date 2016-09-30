@@ -1,5 +1,5 @@
 .project-status-item
-  border-bottom: 1px solid #3a3a3a
+  border-bottom: 1px solid #3d3d3d
   &.is-active
     background-color: $base-color
     .project-status-item__show-details-button
@@ -26,17 +26,20 @@
 .project-status-item__show-details-button
   +size(1.25rem)
   background-color: transparent
+  border: solid .0625rem transparent
   border-radius: .1875rem
-  +text-block(.8125rem 1.25rem, center #ccc)
+  +text-block(.8125rem 1.4, center #ccc flex)
+  justify-content: center
+  align-items: center
   cursor: pointer
-  transition: background-color .2s ease-in, color .2s ease-in
+  transition: border-color .2s ease-in, color .2s ease-in
   .project-status-item.is-shown &,
   .tracker-user.is-shown &
-    background-color: #383838
-    color: $reversal-text
+    border: solid .0625rem $muted-text
+    color: $muted-text
   .project-status-item__show-details:hover &
-    background-color: $primary
-    color: $reversal-text
+    border: solid .0625rem $primary
+    color: $primary
 .project-status-item__total-time
   +text-block(.75rem 1.45, block $muted-text)
 
